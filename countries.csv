@@ -1,3 +1,4 @@
+# sample country file for CSCIE97 Assignments 2,3,4
 #country_id, country_name, country_export_status
 AF,AFGHANISTAN,open
 AX,ALAND ISLANDS,open

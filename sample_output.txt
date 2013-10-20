@@ -1,0 +1,836 @@
+
+Reading in country info from file: ./assignment3/countries.csv
+import country: AF,AFGHANISTAN,open
+importing country id: AF, name: AFGHANISTAN, exportStatus: open
+import country: AX,ALAND ISLANDS,open
+importing country id: AX, name: ALAND ISLANDS, exportStatus: open
+import country: AL,ALBANIA,open
+importing country id: AL, name: ALBANIA, exportStatus: open
+import country: DZ,ALGERIA,open
+importing country id: DZ, name: ALGERIA, exportStatus: open
+import country: AS,AMERICAN SAMOA,open
+importing country id: AS, name: AMERICAN SAMOA, exportStatus: open
+import country: AD,ANDORRA,open
+importing country id: AD, name: ANDORRA, exportStatus: open
+import country: AO,ANGOLA,open
+importing country id: AO, name: ANGOLA, exportStatus: open
+import country: AI,ANGUILLA,open
+importing country id: AI, name: ANGUILLA, exportStatus: open
+import country: AQ,ANTARCTICA,open
+importing country id: AQ, name: ANTARCTICA, exportStatus: open
+import country: AG,ANTIGUA AND BARBUDA,open
+importing country id: AG, name: ANTIGUA AND BARBUDA, exportStatus: open
+import country: AR,ARGENTINA,open
+importing country id: AR, name: ARGENTINA, exportStatus: open
+import country: AM,ARMENIA,open
+importing country id: AM, name: ARMENIA, exportStatus: open
+import country: AW,ARUBA,open
+importing country id: AW, name: ARUBA, exportStatus: open
+import country: AU,AUSTRALIA,open
+importing country id: AU, name: AUSTRALIA, exportStatus: open
+import country: AT,AUSTRIA,open
+importing country id: AT, name: AUSTRIA, exportStatus: open
+import country: AZ,AZERBAIJAN,open
+importing country id: AZ, name: AZERBAIJAN, exportStatus: open
+import country: BS,BAHAMAS,open
+importing country id: BS, name: BAHAMAS, exportStatus: open
+import country: BH,BAHRAIN,open
+importing country id: BH, name: BAHRAIN, exportStatus: open
+import country: BD,BANGLADESH,open
+importing country id: BD, name: BANGLADESH, exportStatus: open
+import country: BB,BARBADOS,open
+importing country id: BB, name: BARBADOS, exportStatus: open
+import country: BY,BELARUS,open
+importing country id: BY, name: BELARUS, exportStatus: open
+import country: BE,BELGIUM,open
+importing country id: BE, name: BELGIUM, exportStatus: open
+import country: BZ,BELIZE,open
+importing country id: BZ, name: BELIZE, exportStatus: open
+import country: BJ,BENIN,open
+importing country id: BJ, name: BENIN, exportStatus: open
+import country: BM,BERMUDA,open
+importing country id: BM, name: BERMUDA, exportStatus: open
+import country: BT,BHUTAN,open
+importing country id: BT, name: BHUTAN, exportStatus: open
+import country: BO,BOLIVIA\, PLURINATIONAL STATE OF,open
+importing country id: BO, name: BOLIVIA, PLURINATIONAL STATE OF, exportStatus: open
+import country: BQ,BONAIRE\, SINT EUSTATIUS AND SABA,open
+importing country id: BQ, name: BONAIRE, SINT EUSTATIUS AND SABA, exportStatus: open
+import country: BA,BOSNIA AND HERZEGOVINA,open
+importing country id: BA, name: BOSNIA AND HERZEGOVINA, exportStatus: open
+import country: BW,BOTSWANA,open
+importing country id: BW, name: BOTSWANA, exportStatus: open
+import country: BV,BOUVET ISLAND,open
+importing country id: BV, name: BOUVET ISLAND, exportStatus: open
+import country: BR,BRAZIL,open
+importing country id: BR, name: BRAZIL, exportStatus: open
+import country: IO,BRITISH INDIAN OCEAN TERRITORY,open
+importing country id: IO, name: BRITISH INDIAN OCEAN TERRITORY, exportStatus: open
+import country: BN,BRUNEI DARUSSALAM,open
+importing country id: BN, name: BRUNEI DARUSSALAM, exportStatus: open
+import country: BG,BULGARIA,open
+importing country id: BG, name: BULGARIA, exportStatus: open
+import country: BF,BURKINA FASO,open
+importing country id: BF, name: BURKINA FASO, exportStatus: open
+import country: BI,BURUNDI,open
+importing country id: BI, name: BURUNDI, exportStatus: open
+import country: KH,CAMBODIA,open
+importing country id: KH, name: CAMBODIA, exportStatus: open
+import country: CM,CAMEROON,open
+importing country id: CM, name: CAMEROON, exportStatus: open
+import country: CA,CANADA,open
+importing country id: CA, name: CANADA, exportStatus: open
+import country: CV,CAPE VERDE,open
+importing country id: CV, name: CAPE VERDE, exportStatus: open
+import country: KY,CAYMAN ISLANDS,open
+importing country id: KY, name: CAYMAN ISLANDS, exportStatus: open
+import country: CF,CENTRAL AFRICAN REPUBLIC,open
+importing country id: CF, name: CENTRAL AFRICAN REPUBLIC, exportStatus: open
+import country: TD,CHAD,open
+importing country id: TD, name: CHAD, exportStatus: open
+import country: CL,CHILE,open
+importing country id: CL, name: CHILE, exportStatus: open
+import country: CN,CHINA,open
+importing country id: CN, name: CHINA, exportStatus: open
+import country: CX,CHRISTMAS ISLAND,open
+importing country id: CX, name: CHRISTMAS ISLAND, exportStatus: open
+import country: CC,COCOS (KEELING) ISLANDS,open
+importing country id: CC, name: COCOS (KEELING) ISLANDS, exportStatus: open
+import country: CO,COLOMBIA,open
+importing country id: CO, name: COLOMBIA, exportStatus: open
+import country: KM,COMOROS,open
+importing country id: KM, name: COMOROS, exportStatus: open
+import country: CG,CONGO,open
+importing country id: CG, name: CONGO, exportStatus: open
+import country: CD,CONGO\, THE DEMOCRATIC REPUBLIC OF THE,open
+importing country id: CD, name: CONGO, THE DEMOCRATIC REPUBLIC OF THE, exportStatus: open
+import country: CK,COOK ISLANDS,open
+importing country id: CK, name: COOK ISLANDS, exportStatus: open
+import country: CR,COSTA RICA,open
+importing country id: CR, name: COSTA RICA, exportStatus: open
+import country: CI,CÔTE D'IVOIRE,open
+importing country id: CI, name: CÔTE D'IVOIRE, exportStatus: open
+import country: HR,CROATIA,open
+importing country id: HR, name: CROATIA, exportStatus: open
+import country: CU,CUBA,open
+importing country id: CU, name: CUBA, exportStatus: open
+import country: CW,CURAÇAO,open
+importing country id: CW, name: CURAÇAO, exportStatus: open
+import country: CY,CYPRUS,open
+importing country id: CY, name: CYPRUS, exportStatus: open
+import country: CZ,CZECH REPUBLIC,open
+importing country id: CZ, name: CZECH REPUBLIC, exportStatus: open
+import country: DK,DENMARK,open
+importing country id: DK, name: DENMARK, exportStatus: open
+import country: DJ,DJIBOUTI,open
+importing country id: DJ, name: DJIBOUTI, exportStatus: open
+import country: DM,DOMINICA,open
+importing country id: DM, name: DOMINICA, exportStatus: open
+import country: DO,DOMINICAN REPUBLIC,open
+importing country id: DO, name: DOMINICAN REPUBLIC, exportStatus: open
+import country: EC,ECUADOR,open
+importing country id: EC, name: ECUADOR, exportStatus: open
+import country: EG,EGYPT,open
+importing country id: EG, name: EGYPT, exportStatus: open
+import country: SV,EL SALVADOR,open
+importing country id: SV, name: EL SALVADOR, exportStatus: open
+import country: GQ,EQUATORIAL GUINEA,open
+importing country id: GQ, name: EQUATORIAL GUINEA, exportStatus: open
+import country: ER,ERITREA,open
+importing country id: ER, name: ERITREA, exportStatus: open
+import country: EE,ESTONIA,open
+importing country id: EE, name: ESTONIA, exportStatus: open
+import country: ET,ETHIOPIA,open
+importing country id: ET, name: ETHIOPIA, exportStatus: open
+import country: FK,FALKLAND ISLANDS (MALVINAS),open
+importing country id: FK, name: FALKLAND ISLANDS (MALVINAS), exportStatus: open
+import country: FO,FAROE ISLANDS,open
+importing country id: FO, name: FAROE ISLANDS, exportStatus: open
+import country: FJ,FIJI,open
+importing country id: FJ, name: FIJI, exportStatus: open
+import country: FI,FINLAND,open
+importing country id: FI, name: FINLAND, exportStatus: open
+import country: FR,FRANCE,open
+importing country id: FR, name: FRANCE, exportStatus: open
+import country: GF,FRENCH GUIANA,open
+importing country id: GF, name: FRENCH GUIANA, exportStatus: open
+import country: PF,FRENCH POLYNESIA,open
+importing country id: PF, name: FRENCH POLYNESIA, exportStatus: open
+import country: TF,FRENCH SOUTHERN TERRITORIES,open
+importing country id: TF, name: FRENCH SOUTHERN TERRITORIES, exportStatus: open
+import country: GA,GABON,open
+importing country id: GA, name: GABON, exportStatus: open
+import country: GM,GAMBIA,open
+importing country id: GM, name: GAMBIA, exportStatus: open
+import country: GE,GEORGIA,open
+importing country id: GE, name: GEORGIA, exportStatus: open
+import country: DE,GERMANY,open
+importing country id: DE, name: GERMANY, exportStatus: open
+import country: GH,GHANA,open
+importing country id: GH, name: GHANA, exportStatus: open
+import country: GI,GIBRALTAR,open
+importing country id: GI, name: GIBRALTAR, exportStatus: open
+import country: GR,GREECE,open
+importing country id: GR, name: GREECE, exportStatus: open
+import country: GL,GREENLAND,open
+importing country id: GL, name: GREENLAND, exportStatus: open
+import country: GD,GRENADA,open
+importing country id: GD, name: GRENADA, exportStatus: open
+import country: GP,GUADELOUPE,open
+importing country id: GP, name: GUADELOUPE, exportStatus: open
+import country: GU,GUAM,open
+importing country id: GU, name: GUAM, exportStatus: open
+import country: GT,GUATEMALA,open
+importing country id: GT, name: GUATEMALA, exportStatus: open
+import country: GG,GUERNSEY,open
+importing country id: GG, name: GUERNSEY, exportStatus: open
+import country: GN,GUINEA,open
+importing country id: GN, name: GUINEA, exportStatus: open
+import country: GW,GUINEA-BISSAU,open
+importing country id: GW, name: GUINEA-BISSAU, exportStatus: open
+import country: GY,GUYANA,open
+importing country id: GY, name: GUYANA, exportStatus: open
+import country: HT,HAITI,open
+importing country id: HT, name: HAITI, exportStatus: open
+import country: HM,HEARD ISLAND AND MCDONALD ISLANDS,open
+importing country id: HM, name: HEARD ISLAND AND MCDONALD ISLANDS, exportStatus: open
+import country: VA,HOLY SEE (VATICAN CITY STATE),open
+importing country id: VA, name: HOLY SEE (VATICAN CITY STATE), exportStatus: open
+import country: HN,HONDURAS,open
+importing country id: HN, name: HONDURAS, exportStatus: open
+import country: HK,HONG KONG,open
+importing country id: HK, name: HONG KONG, exportStatus: open
+import country: HU,HUNGARY,open
+importing country id: HU, name: HUNGARY, exportStatus: open
+import country: IS,ICELAND,open
+importing country id: IS, name: ICELAND, exportStatus: open
+import country: IN,INDIA,open
+importing country id: IN, name: INDIA, exportStatus: open
+import country: ID,INDONESIA,open
+importing country id: ID, name: INDONESIA, exportStatus: open
+import country: IR,IRAN\, ISLAMIC REPUBLIC OF,closed
+importing country id: IR, name: IRAN, ISLAMIC REPUBLIC OF, exportStatus: closed
+import country: IQ,IRAQ,open
+importing country id: IQ, name: IRAQ, exportStatus: open
+import country: IE,IRELAND,open
+importing country id: IE, name: IRELAND, exportStatus: open
+import country: IM,ISLE OF MAN,open
+importing country id: IM, name: ISLE OF MAN, exportStatus: open
+import country: IL,ISRAEL,open
+importing country id: IL, name: ISRAEL, exportStatus: open
+import country: IT,ITALY,open
+importing country id: IT, name: ITALY, exportStatus: open
+import country: JM,JAMAICA,open
+importing country id: JM, name: JAMAICA, exportStatus: open
+import country: JP,JAPAN,open
+importing country id: JP, name: JAPAN, exportStatus: open
+import country: JE,JERSEY,open
+importing country id: JE, name: JERSEY, exportStatus: open
+import country: JO,JORDAN,open
+importing country id: JO, name: JORDAN, exportStatus: open
+import country: KZ,KAZAKHSTAN,open
+importing country id: KZ, name: KAZAKHSTAN, exportStatus: open
+import country: KE,KENYA,open
+importing country id: KE, name: KENYA, exportStatus: open
+import country: KI,KIRIBATI,open
+importing country id: KI, name: KIRIBATI, exportStatus: open
+import country: KP,KOREA\, DEMOCRATIC PEOPLE'S REPUBLIC OF,closed
+importing country id: KP, name: KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF, exportStatus: closed
+import country: KR,KOREA\, REPUBLIC OF,open
+importing country id: KR, name: KOREA, REPUBLIC OF, exportStatus: open
+import country: KW,KUWAIT,open
+importing country id: KW, name: KUWAIT, exportStatus: open
+import country: KG,KYRGYZSTAN,open
+importing country id: KG, name: KYRGYZSTAN, exportStatus: open
+import country: LA,LAO PEOPLE'S DEMOCRATIC REPUBLIC,open
+importing country id: LA, name: LAO PEOPLE'S DEMOCRATIC REPUBLIC, exportStatus: open
+import country: LV,LATVIA,open
+importing country id: LV, name: LATVIA, exportStatus: open
+import country: LB,LEBANON,open
+importing country id: LB, name: LEBANON, exportStatus: open
+import country: LS,LESOTHO,open
+importing country id: LS, name: LESOTHO, exportStatus: open
+import country: LR,LIBERIA,open
+importing country id: LR, name: LIBERIA, exportStatus: open
+import country: LY,LIBYA,open
+importing country id: LY, name: LIBYA, exportStatus: open
+import country: LI,LIECHTENSTEIN,open
+importing country id: LI, name: LIECHTENSTEIN, exportStatus: open
+import country: LT,LITHUANIA,open
+importing country id: LT, name: LITHUANIA, exportStatus: open
+import country: LU,LUXEMBOURG,open
+importing country id: LU, name: LUXEMBOURG, exportStatus: open
+import country: MO,MACAO,open
+importing country id: MO, name: MACAO, exportStatus: open
+import country: MK,MACEDONIA\,THE FORMER YUGOSLAV REPUBLIC OF,open
+importing country id: MK, name: MACEDONIA,THE FORMER YUGOSLAV REPUBLIC OF, exportStatus: open
+import country: MG,MADAGASCAR,open
+importing country id: MG, name: MADAGASCAR, exportStatus: open
+import country: MW,MALAWI,open
+importing country id: MW, name: MALAWI, exportStatus: open
+import country: MY,MALAYSIA,open
+importing country id: MY, name: MALAYSIA, exportStatus: open
+import country: MV,MALDIVES,open
+importing country id: MV, name: MALDIVES, exportStatus: open
+import country: ML,MALI,open
+importing country id: ML, name: MALI, exportStatus: open
+import country: MT,MALTA,open
+importing country id: MT, name: MALTA, exportStatus: open
+import country: MH,MARSHALL ISLANDS,open
+importing country id: MH, name: MARSHALL ISLANDS, exportStatus: open
+import country: MQ,MARTINIQUE,open
+importing country id: MQ, name: MARTINIQUE, exportStatus: open
+import country: MR,MAURITANIA,open
+importing country id: MR, name: MAURITANIA, exportStatus: open
+import country: MU,MAURITIUS,open
+importing country id: MU, name: MAURITIUS, exportStatus: open
+import country: YT,MAYOTTE,open
+importing country id: YT, name: MAYOTTE, exportStatus: open
+import country: MX,MEXICO,open
+importing country id: MX, name: MEXICO, exportStatus: open
+import country: FM,MICRONESIA\, FEDERATED STATES OF,open
+importing country id: FM, name: MICRONESIA, FEDERATED STATES OF, exportStatus: open
+import country: MD,MOLDOVA\, REPUBLIC OF,open
+importing country id: MD, name: MOLDOVA, REPUBLIC OF, exportStatus: open
+import country: MC,MONACO,open
+importing country id: MC, name: MONACO, exportStatus: open
+import country: MN,MONGOLIA,open
+importing country id: MN, name: MONGOLIA, exportStatus: open
+import country: ME,MONTENEGRO,open
+importing country id: ME, name: MONTENEGRO, exportStatus: open
+import country: MS,MONTSERRAT,open
+importing country id: MS, name: MONTSERRAT, exportStatus: open
+import country: MA,MOROCCO,open
+importing country id: MA, name: MOROCCO, exportStatus: open
+import country: MZ,MOZAMBIQUE,open
+importing country id: MZ, name: MOZAMBIQUE, exportStatus: open
+import country: MM,MYANMAR,open
+importing country id: MM, name: MYANMAR, exportStatus: open
+import country: NA,NAMIBIA,open
+importing country id: NA, name: NAMIBIA, exportStatus: open
+import country: NR,NAURU,open
+importing country id: NR, name: NAURU, exportStatus: open
+import country: NP,NEPAL,open
+importing country id: NP, name: NEPAL, exportStatus: open
+import country: NL,NETHERLANDS,open
+importing country id: NL, name: NETHERLANDS, exportStatus: open
+import country: NC,NEW CALEDONIA,open
+importing country id: NC, name: NEW CALEDONIA, exportStatus: open
+import country: NZ,NEW ZEALAND,open
+importing country id: NZ, name: NEW ZEALAND, exportStatus: open
+import country: NI,NICARAGUA,open
+importing country id: NI, name: NICARAGUA, exportStatus: open
+import country: NE,NIGER,open
+importing country id: NE, name: NIGER, exportStatus: open
+import country: NG,NIGERIA,open
+importing country id: NG, name: NIGERIA, exportStatus: open
+import country: NU,NIUE,open
+importing country id: NU, name: NIUE, exportStatus: open
+import country: NF,NORFOLK ISLAND,open
+importing country id: NF, name: NORFOLK ISLAND, exportStatus: open
+import country: MP,NORTHERN MARIANA ISLANDS,open
+importing country id: MP, name: NORTHERN MARIANA ISLANDS, exportStatus: open
+import country: NO,NORWAY,open
+importing country id: NO, name: NORWAY, exportStatus: open
+import country: OM,OMAN,open
+importing country id: OM, name: OMAN, exportStatus: open
+import country: PK,PAKISTAN,open
+importing country id: PK, name: PAKISTAN, exportStatus: open
+import country: PW,PALAU,open
+importing country id: PW, name: PALAU, exportStatus: open
+import country: PS,PALESTINE\, STATE OF,open
+importing country id: PS, name: PALESTINE, STATE OF, exportStatus: open
+import country: PA,PANAMA,open
+importing country id: PA, name: PANAMA, exportStatus: open
+import country: PG,PAPUA NEW GUINEA,open
+importing country id: PG, name: PAPUA NEW GUINEA, exportStatus: open
+import country: PY,PARAGUAY,open
+importing country id: PY, name: PARAGUAY, exportStatus: open
+import country: PE,PERU,open
+importing country id: PE, name: PERU, exportStatus: open
+import country: PH,PHILIPPINES,open
+importing country id: PH, name: PHILIPPINES, exportStatus: open
+import country: PN,PITCAIRN,open
+importing country id: PN, name: PITCAIRN, exportStatus: open
+import country: PL,POLAND,open
+importing country id: PL, name: POLAND, exportStatus: open
+import country: PT,PORTUGAL,open
+importing country id: PT, name: PORTUGAL, exportStatus: open
+import country: PR,PUERTO RICO,open
+importing country id: PR, name: PUERTO RICO, exportStatus: open
+import country: QA,QATAR,open
+importing country id: QA, name: QATAR, exportStatus: open
+import country: RE,RÉUNION,open
+importing country id: RE, name: RÉUNION, exportStatus: open
+import country: RO,ROMANIA,open
+importing country id: RO, name: ROMANIA, exportStatus: open
+import country: RU,RUSSIAN FEDERATION,open
+importing country id: RU, name: RUSSIAN FEDERATION, exportStatus: open
+import country: RW,RWANDA,open
+importing country id: RW, name: RWANDA, exportStatus: open
+import country: BL,SAINT BARTHÉLEMY,open
+importing country id: BL, name: SAINT BARTHÉLEMY, exportStatus: open
+import country: SH,SAINT HELENA\, ASCENSION AND TRISTAN DA CUNHA,open
+importing country id: SH, name: SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA, exportStatus: open
+import country: KN,SAINT KITTS AND NEVIS,open
+importing country id: KN, name: SAINT KITTS AND NEVIS, exportStatus: open
+import country: LC,SAINT LUCIA,open
+importing country id: LC, name: SAINT LUCIA, exportStatus: open
+import country: MF,SAINT MARTIN (FRENCH PART),open
+importing country id: MF, name: SAINT MARTIN (FRENCH PART), exportStatus: open
+import country: PM,SAINT PIERRE AND MIQUELON,open
+importing country id: PM, name: SAINT PIERRE AND MIQUELON, exportStatus: open
+import country: VC,SAINT VINCENT AND THE GRENADINES,open
+importing country id: VC, name: SAINT VINCENT AND THE GRENADINES, exportStatus: open
+import country: WS,SAMOA,open
+importing country id: WS, name: SAMOA, exportStatus: open
+import country: SM,SAN MARINO,open
+importing country id: SM, name: SAN MARINO, exportStatus: open
+import country: ST,SAO TOME AND PRINCIPE,open
+importing country id: ST, name: SAO TOME AND PRINCIPE, exportStatus: open
+import country: SA,SAUDI ARABIA,open
+importing country id: SA, name: SAUDI ARABIA, exportStatus: open
+import country: SN,SENEGAL,open
+importing country id: SN, name: SENEGAL, exportStatus: open
+import country: RS,SERBIA,open
+importing country id: RS, name: SERBIA, exportStatus: open
+import country: SC,SEYCHELLES,open
+importing country id: SC, name: SEYCHELLES, exportStatus: open
+import country: SL,SIERRA LEONE,open
+importing country id: SL, name: SIERRA LEONE, exportStatus: open
+import country: SG,SINGAPORE,open
+importing country id: SG, name: SINGAPORE, exportStatus: open
+import country: SX,SINT MAARTEN (DUTCH PART),open
+importing country id: SX, name: SINT MAARTEN (DUTCH PART), exportStatus: open
+import country: SK,SLOVAKIA,open
+importing country id: SK, name: SLOVAKIA, exportStatus: open
+import country: SI,SLOVENIA,open
+importing country id: SI, name: SLOVENIA, exportStatus: open
+import country: SB,SOLOMON ISLANDS,open
+importing country id: SB, name: SOLOMON ISLANDS, exportStatus: open
+import country: SO,SOMALIA,open
+importing country id: SO, name: SOMALIA, exportStatus: open
+import country: ZA,SOUTH AFRICA,open
+importing country id: ZA, name: SOUTH AFRICA, exportStatus: open
+import country: GS,SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS,open
+importing country id: GS, name: SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS, exportStatus: open
+import country: SS,SOUTH SUDAN,open
+importing country id: SS, name: SOUTH SUDAN, exportStatus: open
+import country: ES,SPAIN,open
+importing country id: ES, name: SPAIN, exportStatus: open
+import country: LK,SRI LANKA,open
+importing country id: LK, name: SRI LANKA, exportStatus: open
+import country: SD,SUDAN,open
+importing country id: SD, name: SUDAN, exportStatus: open
+import country: SR,SURINAME,open
+importing country id: SR, name: SURINAME, exportStatus: open
+import country: SJ,SVALBARD AND JAN MAYEN,open
+importing country id: SJ, name: SVALBARD AND JAN MAYEN, exportStatus: open
+import country: SZ,SWAZILAND,open
+importing country id: SZ, name: SWAZILAND, exportStatus: open
+import country: SE,SWEDEN,open
+importing country id: SE, name: SWEDEN, exportStatus: open
+import country: CH,SWITZERLAND,open
+importing country id: CH, name: SWITZERLAND, exportStatus: open
+import country: SY,SYRIAN ARAB REPUBLIC,open
+importing country id: SY, name: SYRIAN ARAB REPUBLIC, exportStatus: open
+import country: TW,TAIWAN\, PROVINCE OF CHINA,open
+importing country id: TW, name: TAIWAN, PROVINCE OF CHINA, exportStatus: open
+import country: TJ,TAJIKISTAN,open
+importing country id: TJ, name: TAJIKISTAN, exportStatus: open
+import country: TZ,TANZANIA\, UNITED REPUBLIC OF,open
+importing country id: TZ, name: TANZANIA, UNITED REPUBLIC OF, exportStatus: open
+import country: TH,THAILAND,open
+importing country id: TH, name: THAILAND, exportStatus: open
+import country: TL,TIMOR-LESTE,open
+importing country id: TL, name: TIMOR-LESTE, exportStatus: open
+import country: TG,TOGO,open
+importing country id: TG, name: TOGO, exportStatus: open
+import country: TK,TOKELAU,open
+importing country id: TK, name: TOKELAU, exportStatus: open
+import country: TO,TONGA,open
+importing country id: TO, name: TONGA, exportStatus: open
+import country: TT,TRINIDAD AND TOBAGO,open
+importing country id: TT, name: TRINIDAD AND TOBAGO, exportStatus: open
+import country: TN,TUNISIA,open
+importing country id: TN, name: TUNISIA, exportStatus: open
+import country: TR,TURKEY,open
+importing country id: TR, name: TURKEY, exportStatus: open
+import country: TM,TURKMENISTAN,open
+importing country id: TM, name: TURKMENISTAN, exportStatus: open
+import country: TC,TURKS AND CAICOS ISLANDS,open
+importing country id: TC, name: TURKS AND CAICOS ISLANDS, exportStatus: open
+import country: TV,TUVALU,open
+importing country id: TV, name: TUVALU, exportStatus: open
+import country: UG,UGANDA,open
+importing country id: UG, name: UGANDA, exportStatus: open
+import country: UA,UKRAINE,open
+importing country id: UA, name: UKRAINE, exportStatus: open
+import country: AE,UNITED ARAB EMIRATES,open
+importing country id: AE, name: UNITED ARAB EMIRATES, exportStatus: open
+import country: GB,UNITED KINGDOM,open
+importing country id: GB, name: UNITED KINGDOM, exportStatus: open
+import country: US,UNITED STATES,open
+importing country id: US, name: UNITED STATES, exportStatus: open
+import country: UM,UNITED STATES MINOR OUTLYING ISLANDS,open
+importing country id: UM, name: UNITED STATES MINOR OUTLYING ISLANDS, exportStatus: open
+import country: UY,URUGUAY,open
+importing country id: UY, name: URUGUAY, exportStatus: open
+import country: UZ,UZBEKISTAN,open
+importing country id: UZ, name: UZBEKISTAN, exportStatus: open
+import country: VU,VANUATU,open
+importing country id: VU, name: VANUATU, exportStatus: open
+import country: VE,VENEZUELA\, BOLIVARIAN REPUBLIC OF,open
+importing country id: VE, name: VENEZUELA, BOLIVARIAN REPUBLIC OF, exportStatus: open
+import country: VN,VIET NAM,open
+importing country id: VN, name: VIET NAM, exportStatus: open
+import country: VG,VIRGIN ISLANDS\, BRITISH,open
+importing country id: VG, name: VIRGIN ISLANDS, BRITISH, exportStatus: open
+import country: VI,VIRGIN ISLANDS\, U.S.,open
+importing country id: VI, name: VIRGIN ISLANDS, U.S., exportStatus: open
+import country: WF,WALLIS AND FUTUNA,open
+importing country id: WF, name: WALLIS AND FUTUNA, exportStatus: open
+import country: EH,WESTERN SAHARA,open
+importing country id: EH, name: WESTERN SAHARA, exportStatus: open
+import country: YE,YEMEN,open
+importing country id: YE, name: YEMEN, exportStatus: open
+import country: ZM,ZAMBIA,open
+importing country id: ZM, name: ZAMBIA, exportStatus: open
+import country: ZW,ZIMBABWE,open
+importing country id: ZW, name: ZIMBABWE, exportStatus: open
+
+Reading in device info from file: ./assignment3/devices.csv
+import device: iphone_5, IPhone 5, Apple
+importing device id: iphone_5, name: IPhone 5, manufacturer: Apple
+import device: iphone_6, IPhone 6, Apple
+importing device id: iphone_6, name: IPhone 6, manufacturer: Apple
+import device: ipad, IPad, Apple
+importing device id: ipad, name: IPad, manufacturer: Apple
+import device: lumina_800, Lumina 800, Nokia
+importing device id: lumina_800, name: Lumina 800, manufacturer: Nokia
+import device: lumina_900, Lumina 900, Nokia
+importing device id: lumina_900, name: Lumina 900, manufacturer: Nokia
+import device: galaxy_s3, Galaxy S3, Samsung
+importing device id: galaxy_s3, name: Galaxy S3, manufacturer: Samsung
+import device: galaxy_s4, Galaxy S4, Samsung
+importing device id: galaxy_s4, name: Galaxy S4, manufacturer: Samsung
+import device: glass, Google Glass, Google
+importing device id: glass, name: Google Glass, manufacturer: Google
+import device: nexus, Google Nexus, Google
+importing device id: nexus, name: Google Nexus, manufacturer: Google
+import device: htc_one, HTC One, HTC
+importing device id: htc_one, name: HTC One, manufacturer: HTC
+import device: samsung_s3, Samsung S3, Samsung
+importing device id: samsung_s3, name: Samsung S3, manufacturer: Samsung
+import device: samsung_s4, Samsung S4, Samsung
+importing device id: samsung_s4, name: Samsung S4, manufacturer: Samsung
+
+Reading in product info from file: ./assignment3/products.csv
+import product: application, angry_birds, Angry Birds, The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic\, skill\, and force to solve, Rovio, 5, game|kids,US|CA|MX,iphone_5|iphone_6|lumina_800,1.5,en_us|en_ca|en_gb, http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png,564
+import product: application, angry_birds_seasons, Angry Birds Seasons, Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year\, the birds are celebrating different festive seasons around the world! , Rovio, 5, game|kids,US|CA|MX,iphone_5|iphone_6|lumina_800,1.5,en_us|en_ca|en_gb, http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png,564
+import product: application, angry_birds_star_wars, Angry Birds Star Wars, A long time ago in a galaxy far\, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!, Rovio, 5, game|kids,US|CA|MX,iphone_5|iphone_6|lumina_800,1.5,en_us|en_ca|en_gb, http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png,564
+import product: ringtone, rt1, Ferrari 575M Maranello - 2002,This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!,Nutbags,4,car|racing,US|CA|MX|AF|AL,lumina_800,0.0,en_us|en_ca|en_gb,http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png
+import product: application, Yahoo!_Sports, Yahoo! Sports, Get blazing fast live scores\, stats\, and standings personalized for your favorite leagues\, teams\, and players, Yahoo!, 5, sports|baseball|basketball|soccer,US|CA|MX,iphone_5|iphone_6|lumina_800,0.0,en_us|en_ca|en_gb, https://lh4.ggpht.com/MzcZpm3litAaHqfI4hZnz8Bv8PfTykIc9A_In0BjbQk2XPZFdLPuuzfpVw3ta9oGKEY=w300-rw,564
+import product: application, Score_Center, ScoreCenter, ESPN ScoreCenter brings you scores\, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime\, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis., ESPN, 5, sports|baseball|basketball|soccer,US|CA|MX|FI|UK,iphone_5|iphone_6|lumina_800,0.0,en_us|en_ca|en_gb, https://lh3.ggpht.com/YPRbjg1sofJ0cjetFoVNZlx4oaNjkmnezWVoba-D9XxR1e2DKhHFgBbsx5xfooLIeSo=w300-rw,964
+import product: application, Cricket_WorldCup_Fever, Cricket WorldCup Fever, "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match"\, "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes., Indiagames Ltd., 5, sports|cricket|games,US|CA|MX|FI|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, https://lh3.ggpht.com/3h_IfGL0aNWYGGGnYaBs8OhoK3yBUkyn2t7C2Hb-dSUP1rAKPBT_khEtaSgenkc2UBI=w300-rw,15000
+import product: application, Stick_Cricket_Premier_League, Stick Cricket Premier League, Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world., Stick Sports Ltd, 4, sports|cricket|games,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, https://lh3.ggpht.com/nrgUEydCC3iFXFPwFLChDjL3t2V-3KpekM5oieQMPnMGqmYcEND-PGoQfIWPDoJc0A=w300-rw,5000
+import product: application, NPR_News, NPR News, Read\, listen\, or create a playlist of your favorite NPR stories and share with friends., NPR , 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, https://lh4.ggpht.com/AnC8LtJK3CzWLuMrVee3FMgNrGcKXDPjtygeNfkLmV078Tu5C9L_bxcR0tEnnluu_e8=w300-rw,5000
+import product: application, BBC_News, BBC News, Get the latest world and regional news from the BBC’s global network of more than 2000 journalists., BBC , 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, https://lh5.ggpht.com/vnMqeTk8u86eSw3k70I_ALnAmeh1mQnun14Jr5kPirI5Wh7wKYrqU4Om71TLz3l3ur_K=w300-rw,5000
+import product: wallpaper, HD_Wallpapers_for_Android , HD Wallpapers for Android,Qualitative and convenient for application of HD Wallpaper for Android.,PowerAPP,4,personalization,US|CA|IN|FI,  iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb,https://lh5.ggpht.com/GSvdQwJSpVoPyZJIOUTWpgOx9reGKehLnj6Id0Ld0pq1yfAEiGAOkUm2Eu7H8vr-1A=w300-rw
+
+Reading in search info from file: ./assignment3/queries.csv
+process query: , Ferrari, , , , , ,
+search query: SearchCriteria{contentTypeSet=null, contentIdSet=null, textStringSet=[Ferrari], authorSet=null, minRating=null, categorySet=null, countrySet=null, deviceSet=null, maxPrice=null, languageSet=null, maxSize=null}
+product: RingTone{Product{id='rt1', name='Ferrari 575M Maranello - 2002', description='This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!', author='Nutbags', rating=4, categorySet=[car, racing], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png'}}
+process query: , , 4, 0, , , ,
+search query: SearchCriteria{contentTypeSet=null, contentIdSet=null, textStringSet=null, authorSet=null, minRating=4, categorySet=null, countrySet=null, deviceSet=null, maxPrice=0.0, languageSet=null, maxSize=null}
+product: Application{Product{id='Stick_Cricket_Premier_League', name='Stick Cricket Premier League', description='Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.', author='Stick Sports Ltd', rating=4, categorySet=[games, cricket, sports], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/nrgUEydCC3iFXFPwFLChDjL3t2V-3KpekM5oieQMPnMGqmYcEND-PGoQfIWPDoJc0A=w300-rw'}size=0}
+product: Wallpaper{Product{id='HD_Wallpapers_for_Android', name='HD Wallpapers for Android', description='Qualitative and convenient for application of HD Wallpaper for Android.', author='PowerAPP', rating=4, categorySet=[personalization], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh5.ggpht.com/GSvdQwJSpVoPyZJIOUTWpgOx9reGKehLnj6Id0Ld0pq1yfAEiGAOkUm2Eu7H8vr-1A=w300-rw'}}
+product: Application{Product{id='BBC_News', name='BBC News', description='Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.', author='BBC', rating=5, categorySet=[news, magazines], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh5.ggpht.com/vnMqeTk8u86eSw3k70I_ALnAmeh1mQnun14Jr5kPirI5Wh7wKYrqU4Om71TLz3l3ur_K=w300-rw'}size=0}
+product: RingTone{Product{id='rt1', name='Ferrari 575M Maranello - 2002', description='This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!', author='Nutbags', rating=4, categorySet=[car, racing], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png'}}
+product: Application{Product{id='Cricket_WorldCup_Fever', name='Cricket WorldCup Fever', description='"Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.', author='Indiagames Ltd.', rating=5, categorySet=[games, cricket, sports], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/3h_IfGL0aNWYGGGnYaBs8OhoK3yBUkyn2t7C2Hb-dSUP1rAKPBT_khEtaSgenkc2UBI=w300-rw'}size=0}
+product: Application{Product{id='NPR_News', name='NPR News', description='Read, listen, or create a playlist of your favorite NPR stories and share with friends.', author='NPR', rating=5, categorySet=[news, magazines], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh4.ggpht.com/AnC8LtJK3CzWLuMrVee3FMgNrGcKXDPjtygeNfkLmV078Tu5C9L_bxcR0tEnnluu_e8=w300-rw'}size=0}
+product: Application{Product{id='Yahoo!_Sports', name='Yahoo! Sports', description='Get blazing fast live scores, stats, and standings personalized for your favorite leagues, teams, and players', author='Yahoo!', rating=5, categorySet=[basketball, baseball, sports, soccer], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh4.ggpht.com/MzcZpm3litAaHqfI4hZnz8Bv8PfTykIc9A_In0BjbQk2XPZFdLPuuzfpVw3ta9oGKEY=w300-rw'}size=0}
+product: Application{Product{id='Score_Center', name='ScoreCenter', description='ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.', author='ESPN', rating=5, categorySet=[basketball, baseball, sports, soccer], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/YPRbjg1sofJ0cjetFoVNZlx4oaNjkmnezWVoba-D9XxR1e2DKhHFgBbsx5xfooLIeSo=w300-rw'}size=0}
+process query: , Bird|Ferrari, 4, 100.0, , , ,
+search query: SearchCriteria{contentTypeSet=null, contentIdSet=null, textStringSet=[Bird, Ferrari], authorSet=null, minRating=4, categorySet=null, countrySet=null, deviceSet=null, maxPrice=100.0, languageSet=null, maxSize=null}
+product: Application{Product{id='angry_birds_seasons', name='Angry Birds Seasons', description='Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year, the birds are celebrating different festive seasons around the world!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: Application{Product{id='angry_birds', name='Angry Birds', description='The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic, skill, and force to solve', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: RingTone{Product{id='rt1', name='Ferrari 575M Maranello - 2002', description='This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!', author='Nutbags', rating=4, categorySet=[car, racing], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png'}}
+product: Application{Product{id='angry_birds_star_wars', name='Angry Birds Star Wars', description='A long time ago in a galaxy far, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+process query: , bird|Ferrari, 4, 100.0, , , ,
+search query: SearchCriteria{contentTypeSet=null, contentIdSet=null, textStringSet=[bird, Ferrari], authorSet=null, minRating=4, categorySet=null, countrySet=null, deviceSet=null, maxPrice=100.0, languageSet=null, maxSize=null}
+product: Application{Product{id='angry_birds_seasons', name='Angry Birds Seasons', description='Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year, the birds are celebrating different festive seasons around the world!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: Application{Product{id='angry_birds', name='Angry Birds', description='The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic, skill, and force to solve', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: RingTone{Product{id='rt1', name='Ferrari 575M Maranello - 2002', description='This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!', author='Nutbags', rating=4, categorySet=[car, racing], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png'}}
+product: Application{Product{id='angry_birds_star_wars', name='Angry Birds Star Wars', description='A long time ago in a galaxy far, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+process query: , bird|Ferrari, 4, 1.5, , al|af|us|xx,lumina_800|iphone_5|iphone_6,ringtone|wallpaper|application
+search query: SearchCriteria{contentTypeSet=[application, wallpaper, ringtone], contentIdSet=null, textStringSet=[bird, Ferrari], authorSet=null, minRating=4, categorySet=null, countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], maxPrice=1.5, languageSet=null, maxSize=null}
+product: Application{Product{id='angry_birds_seasons', name='Angry Birds Seasons', description='Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year, the birds are celebrating different festive seasons around the world!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: Application{Product{id='angry_birds', name='Angry Birds', description='The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic, skill, and force to solve', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+product: RingTone{Product{id='rt1', name='Ferrari 575M Maranello - 2002', description='This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!', author='Nutbags', rating=4, categorySet=[car, racing], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='AF', name='AFGHANISTAN', exportStatus=open}, Country{code='AL', name='ALBANIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='http://p.d.ovi.com/p/g/store/1492679/_02_Ferrari_575M_Maranello-192x192.png'}}
+product: Application{Product{id='angry_birds_star_wars', name='Angry Birds Star Wars', description='A long time ago in a galaxy far, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!', author='Rovio', rating=5, categorySet=[game, kids], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=1.5, languageSet=[en_us, en_ca, en_gb], imageUrl='http://web-assets.angrybirds.com/abcom/img/games/223/Icon_download_seasons_223x223.png'}size=0}
+process query: , News, , , , , ,
+search query: SearchCriteria{contentTypeSet=null, contentIdSet=null, textStringSet=[News], authorSet=null, minRating=null, categorySet=null, countrySet=null, deviceSet=null, maxPrice=null, languageSet=null, maxSize=null}
+product: Application{Product{id='BBC_News', name='BBC News', description='Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.', author='BBC', rating=5, categorySet=[news, magazines], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh5.ggpht.com/vnMqeTk8u86eSw3k70I_ALnAmeh1mQnun14Jr5kPirI5Wh7wKYrqU4Om71TLz3l3ur_K=w300-rw'}size=0}
+product: Application{Product{id='NPR_News', name='NPR News', description='Read, listen, or create a playlist of your favorite NPR stories and share with friends.', author='NPR', rating=5, categorySet=[news, magazines], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh4.ggpht.com/AnC8LtJK3CzWLuMrVee3FMgNrGcKXDPjtygeNfkLmV078Tu5C9L_bxcR0tEnnluu_e8=w300-rw'}size=0}
+product: Application{Product{id='Score_Center', name='ScoreCenter', description='ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.', author='ESPN', rating=5, categorySet=[basketball, baseball, sports, soccer], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/YPRbjg1sofJ0cjetFoVNZlx4oaNjkmnezWVoba-D9XxR1e2DKhHFgBbsx5xfooLIeSo=w300-rw'}size=0}
+process query: , Cricket, , , , , , application
+search query: SearchCriteria{contentTypeSet=[application], contentIdSet=null, textStringSet=[Cricket], authorSet=null, minRating=null, categorySet=null, countrySet=null, deviceSet=null, maxPrice=null, languageSet=null, maxSize=null}
+product: Application{Product{id='Stick_Cricket_Premier_League', name='Stick Cricket Premier League', description='Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.', author='Stick Sports Ltd', rating=4, categorySet=[games, cricket, sports], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/nrgUEydCC3iFXFPwFLChDjL3t2V-3KpekM5oieQMPnMGqmYcEND-PGoQfIWPDoJc0A=w300-rw'}size=0}
+product: Application{Product{id='Cricket_WorldCup_Fever', name='Cricket WorldCup Fever', description='"Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.', author='Indiagames Ltd.', rating=5, categorySet=[games, cricket, sports], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='MX', name='MEXICO', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh3.ggpht.com/3h_IfGL0aNWYGGGnYaBs8OhoK3yBUkyn2t7C2Hb-dSUP1rAKPBT_khEtaSgenkc2UBI=w300-rw'}size=0}
+process query: ,  , , , , , , wallpaper
+search query: SearchCriteria{contentTypeSet=[wallpaper], contentIdSet=null, textStringSet=null, authorSet=null, minRating=null, categorySet=null, countrySet=null, deviceSet=null, maxPrice=null, languageSet=null, maxSize=null}
+product: Wallpaper{Product{id='HD_Wallpapers_for_Android', name='HD Wallpapers for Android', description='Qualitative and convenient for application of HD Wallpaper for Android.', author='PowerAPP', rating=4, categorySet=[personalization], countrySet=[Country{code='US', name='UNITED STATES', exportStatus=open}, Country{code='IN', name='INDIA', exportStatus=open}, Country{code='CA', name='CANADA', exportStatus=open}, Country{code='FI', name='FINLAND', exportStatus=open}], deviceSet=[Device{id='iphone_5', name='IPhone 5', manufacturer='Apple'}, Device{id='iphone_6', name='IPhone 6', manufacturer='Apple'}, Device{id='htc_one', name='HTC One', manufacturer='HTC'}, Device{id='lumina_800', name='Lumina 800', manufacturer='Nokia'}], price=0.0, languageSet=[en_us, en_ca, en_gb], imageUrl='https://lh5.ggpht.com/GSvdQwJSpVoPyZJIOUTWpgOx9reGKehLnj6Id0Ld0pq1yfAEiGAOkUm2Eu7H8vr-1A=w300-rw'}}
+
+Reading in collection info from file: ./assignment3/collections.csv
+processing command: define_collection, static, sports_collection, sports, cool sports apps
+processing command: define_collection, dynamic, cricket_collection, Cricket, All things Cricket
+processing command: define_collection, dynamic, angry_birds_collection, Angry Birds Collection, All available Angry Birds Applications
+processing command: define_collection, dynamic, free_collection, Free, All available Free Content
+processing command: define_collection, dynamic, news_apps, News Apps, All about News
+processing command: add_collection_content, sports_collection, product, Yahoo!_Sports
+processing command: add_collection_content, sports_collection, product, Score_Center
+processing command: add_collection_content, sports_collection, collection, cricket_collection
+processing command: set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
+processing command: set_dynamic_criteria, angry_birds_collection, , angry Birds, , , , , ,
+processing command: set_dynamic_criteria, free_collection, , , , 0.0,, , ,
+processing command: set_dynamic_criteria, news_apps, news, , ,,, , ,
+
+processing command: search_collection, BIRDS
+Collection ID: e938bda4-d93a-4874-a186-b83ca268b5fd
+  Name: temp search result
+  Description: search result for: birds
+  Type: static_collection
+Collection ID: angry_birds_collection
+  Name: Angry Birds Collection
+  Description: All available Angry Birds Applications
+  Type: dynamic_collection
+  Product ID: angry_birds_seasons
+     Name: Angry Birds Seasons
+     Description: Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year, the birds are celebrating different festive seasons around the world!
+     Type: application
+  Product ID: angry_birds
+     Name: Angry Birds
+     Description: The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic, skill, and force to solve
+     Type: application
+  Product ID: angry_birds_star_wars
+     Name: Angry Birds Star Wars
+     Description: A long time ago in a galaxy far, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!
+     Type: application
+
+processing command: search_collection, free
+Collection ID: b217df40-1a5a-4a8a-9b76-55ec1172bb57
+  Name: temp search result
+  Description: search result for: free
+  Type: static_collection
+Collection ID: free_collection
+  Name: Free
+  Description: All available Free Content
+  Type: dynamic_collection
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+  Product ID: Yahoo!_Sports
+     Name: Yahoo! Sports
+     Description: Get blazing fast live scores, stats, and standings personalized for your favorite leagues, teams, and players
+     Type: application
+  Product ID: Score_Center
+     Name: ScoreCenter
+     Description: ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.
+     Type: application
+  Product ID: NPR_News
+     Name: NPR News
+     Description: Read, listen, or create a playlist of your favorite NPR stories and share with friends.
+     Type: application
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+  Product ID: HD_Wallpapers_for_Android
+     Name: HD Wallpapers for Android
+     Description: Qualitative and convenient for application of HD Wallpaper for Android.
+     Type: wallpaper
+  Product ID: rt1
+     Name: Ferrari 575M Maranello - 2002
+     Description: This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!
+     Type: ringtone
+  Product ID: BBC_News
+     Name: BBC News
+     Description: Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.
+     Type: application
+
+processing command: search_collection, cricket
+Collection ID: b10a04d3-7d99-4fc9-9207-dda41170b1ce
+  Name: temp search result
+  Description: search result for: cricket
+  Type: static_collection
+Collection ID: cricket_collection
+  Name: Cricket
+  Description: All things Cricket
+  Type: dynamic_collection
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+
+processing command: search_collection, sports
+Collection ID: d192827e-8629-4b3d-bb19-6bd6c4c7e226
+  Name: temp search result
+  Description: search result for: sports
+  Type: static_collection
+Collection ID: sports_collection
+  Name: sports
+  Description: cool sports apps
+  Type: static_collection
+  Product ID: Score_Center
+     Name: ScoreCenter
+     Description: ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.
+     Type: application
+  Product ID: Yahoo!_Sports
+     Name: Yahoo! Sports
+     Description: Get blazing fast live scores, stats, and standings personalized for your favorite leagues, teams, and players
+     Type: application
+Collection ID: cricket_collection
+  Name: Cricket
+  Description: All things Cricket
+  Type: dynamic_collection
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+
+processing command: search_collection, neWs
+Collection ID: 603af6ba-2095-4ffa-951c-a7a41794703e
+  Name: temp search result
+  Description: search result for: news
+  Type: static_collection
+Collection ID: news_apps
+  Name: News Apps
+  Description: All about News
+  Type: dynamic_collection
+  Product ID: BBC_News
+     Name: BBC News
+     Description: Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.
+     Type: application
+  Product ID: NPR_News
+     Name: NPR News
+     Description: Read, listen, or create a playlist of your favorite NPR stories and share with friends.
+     Type: application
+
+processing command: search_collection,
+Collection ID: 33720354-05e5-4928-86d0-90187aa7f337
+  Name: temp search result
+  Description: search result for:
+  Type: static_collection
+Collection ID: free_collection
+  Name: Free
+  Description: All available Free Content
+  Type: dynamic_collection
+  Product ID: BBC_News
+     Name: BBC News
+     Description: Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.
+     Type: application
+  Product ID: Score_Center
+     Name: ScoreCenter
+     Description: ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.
+     Type: application
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+  Product ID: rt1
+     Name: Ferrari 575M Maranello - 2002
+     Description: This ringtone is a unique and exclusive recording of the 2002 Ferrari 575M Maranello being driven to its limits!
+     Type: ringtone
+  Product ID: Yahoo!_Sports
+     Name: Yahoo! Sports
+     Description: Get blazing fast live scores, stats, and standings personalized for your favorite leagues, teams, and players
+     Type: application
+  Product ID: HD_Wallpapers_for_Android
+     Name: HD Wallpapers for Android
+     Description: Qualitative and convenient for application of HD Wallpaper for Android.
+     Type: wallpaper
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+  Product ID: NPR_News
+     Name: NPR News
+     Description: Read, listen, or create a playlist of your favorite NPR stories and share with friends.
+     Type: application
+Collection ID: angry_birds_collection
+  Name: Angry Birds Collection
+  Description: All available Angry Birds Applications
+  Type: dynamic_collection
+  Product ID: angry_birds_star_wars
+     Name: Angry Birds Star Wars
+     Description: A long time ago in a galaxy far, far away... a group of desperate rebel birds faced off against a galactic menace: the Empire’s evil Pigtroopers!
+     Type: application
+  Product ID: angry_birds_seasons
+     Name: Angry Birds Seasons
+     Description: Angry Birds Seasons takes the captivating gameplay of the original to a whole new level! From Halloween to Chinese New Year, the birds are celebrating different festive seasons around the world!
+     Type: application
+  Product ID: angry_birds
+     Name: Angry Birds
+     Description: The survival of the Angry Birds is at stake. Dish out revenge on the greedy pigs who stole their eggs. Use the unique powers of each bird to destroy the pigs’ defenses. Angry Birds features challenging physics-based gameplay and hours of replay value. Each level requires logic, skill, and force to solve
+     Type: application
+Collection ID: cricket_collection
+  Name: Cricket
+  Description: All things Cricket
+  Type: dynamic_collection
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+Collection ID: sports_collection
+  Name: sports
+  Description: cool sports apps
+  Type: static_collection
+  Product ID: Score_Center
+     Name: ScoreCenter
+     Description: ESPN ScoreCenter brings you scores, news and standings from sports leagues around the world. The new app makes it easier than ever to follow your favorite teams anytime, anywhere. Stay up to date on the latest scores with personalized scoreboards and alerts. Follow the nation’s top stories with in-depth coverage and analysis.
+     Type: application
+  Product ID: Yahoo!_Sports
+     Name: Yahoo! Sports
+     Description: Get blazing fast live scores, stats, and standings personalized for your favorite leagues, teams, and players
+     Type: application
+Collection ID: cricket_collection
+  Name: Cricket
+  Description: All things Cricket
+  Type: dynamic_collection
+  Product ID: Cricket_WorldCup_Fever
+     Name: Cricket WorldCup Fever
+     Description: "Cricket WorldCup Fever" is the most complete cricket game for your Android Phone. Play with your favourite cricket national team in 4 exciting modes of play - "Quick Match", "PowerPlay" “World Cup” and the turn based styled "Pass-N-Play" modes.
+     Type: application
+  Product ID: Stick_Cricket_Premier_League
+     Name: Stick Cricket Premier League
+     Description: Your ticket to the bright lights of Premier League super stardom is here. From the creators of the most popular cricket game in the world.
+     Type: application
+Collection ID: news_apps
+  Name: News Apps
+  Description: All about News
+  Type: dynamic_collection
+  Product ID: NPR_News
+     Name: NPR News
+     Description: Read, listen, or create a playlist of your favorite NPR stories and share with friends.
+     Type: application
+  Product ID: BBC_News
+     Name: BBC News
+     Description: Get the latest world and regional news from the BBC’s global network of more than 2000 journalists.
+     Type: application
+
+Process finished with exit code 0
