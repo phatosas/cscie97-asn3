@@ -1,8 +1,10 @@
-package cscie97.asn3.ecommerce.product;
+package cscie97.asn3.ecommerce.csv;
 
 import cscie97.asn3.ecommerce.exception.ImportException;
 import cscie97.asn3.ecommerce.exception.ParseException;
 import cscie97.asn3.ecommerce.exception.QueryEngineException;
+import cscie97.asn3.ecommerce.product.*;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -42,13 +44,13 @@ import java.util.Arrays;
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
- * @see IProductAPI
- * @see ProductAPI
- * @see Content
- * @see Importer
- * @see Application
- * @see Ringtone
- * @see Wallpaper
+ * @see cscie97.asn3.ecommerce.product.IProductAPI
+ * @see cscie97.asn3.ecommerce.product.ProductAPI
+ * @see cscie97.asn3.ecommerce.product.Content
+ * @see cscie97.asn3.ecommerce.csv.Importer
+ * @see cscie97.asn3.ecommerce.product.Application
+ * @see cscie97.asn3.ecommerce.product.Ringtone
+ * @see cscie97.asn3.ecommerce.product.Wallpaper
  */
 public class SearchEngine {
 
@@ -214,7 +216,7 @@ public class SearchEngine {
      *     <li>list of content types (can be any or all of "application", "ringtone", or "wallpaper" currently)</li>
      * </ol>
      * Checks for valid input file name.
-     * Delegates to {@link cscie97.asn3.ecommerce.product.SearchEngine#executeQuery(String)} for processing
+     * Delegates to {@link SearchEngine#executeQuery(String)} for processing
      * individual search queries.
      * Throws ImportException on error accessing or processing the input search query file.
      *

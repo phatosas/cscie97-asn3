@@ -1,16 +1,19 @@
-package cscie97.asn3.ecommerce.product;
+package cscie97.asn3.ecommerce.csv;
 
+import cscie97.asn3.ecommerce.exception.CollectionNotFoundException;
 import cscie97.asn3.ecommerce.exception.ImportException;
 import cscie97.asn3.ecommerce.exception.ParseException;
+import cscie97.asn3.ecommerce.product.*;
+import cscie97.asn3.ecommerce.collection.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.ArrayList;
 
 /**
  * Provides public static methods for supplying CSV files to load {@link cscie97.asn3.ecommerce.product.Country},
@@ -89,168 +92,98 @@ import java.util.Set;
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
- * @see IProductAPI
- * @see ProductAPI
- * @see Content
- * @see Device
- * @see Application
- * @see Ringtone
- * @see Wallpaper
+ * @see cscie97.asn3.ecommerce.collection.ICollectionServiceAPI
+ * @see cscie97.asn3.ecommerce.collection.CollectionServiceAPI
+ * @see cscie97.asn3.ecommerce.collection.Collectible
+ * @see cscie97.asn3.ecommerce.collection.Collection
+ * @see cscie97.asn3.ecommerce.collection.CollectionIterator
+ * @see cscie97.asn3.ecommerce.collection.ContentProxy
+ * @see cscie97.asn3.ecommerce.collection.StaticCollection
+ * @see cscie97.asn3.ecommerce.collection.DynamicCollection
  */
-public class Importer {
+public class CollectionImporter extends Importer {
 
-    /**
-     * Protected method to parse a line from a CSV input file and return an array of strings.  Splits up the string
-     * based on the supplied separator, and ignores any backslash-escaped separator.  Access level set to "protected"
-     * so that the {@link cscie97.asn3.ecommerce.product.SearchEngine} class may also use this method.
-     *
-     * @param line       the string to parse out and split into an array based on separator
-     * @param separator  the character to use for splitting out the line
-     * @return           an array of strings that were split by the separator
-     */
-    protected static String[] parseCSVLine(String line, String separator) {
-        // need to do a negative lookbehind to properly escape the backslash-preceeding characters that come
-        // immediately prior to the passed separator in input strings (help from:
-        // http://stackoverflow.com/questions/820172/how-to-split-a-comma-separated-string-while-ignoring-escaped-commas)
-        String[] parts = line.split("(?<!\\\\)"+separator);
+/*
+# sample collections file for CSCIE97 Assignment 3
 
-        // remove any remaining backslash characters from each of the parts if that backslash is immediately
-        // followed by a comma (which is the way our CSVs are formatted to escape inline commas per column
-        for(int i=0; i<parts.length; i++) {
-            parts[i] = parts[i].replaceAll("\\\\,+", ",");
-        }
-        return parts;
+# define collections
+# define_collection, <collection_type>, <collection_id>, <collection_name>, <collection_description>
+define_collection, static, sports_collection, sports, cool sports apps
+define_collection, dynamic, cricket_collection, Cricket, All things Cricket
+define_collection, dynamic, angry_birds_collection, Angry Birds Collection, All available Angry Birds Applications
+define_collection, dynamic, free_collection, Free, All available Free Content
+define_collection, dynamic, news_apps, News Apps, All about News
+
+# add content to collections
+# add_collection_content, <collection_id>, <content_type>, <content_id>
+ add_collection_content, sports_collection, product, Yahoo!_Sports
+ add_collection_content, sports_collection, product, Score_Center
+ add_collection_content, sports_collection, collection, cricket_collection
+
+# set search criteria for dynamic cricket_collection, dynamic collection criteria are specified as with product api search criteria
+# set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
+set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
+set_dynamic_criteria, angry_birds_collection, , angry Birds, , , , , ,
+set_dynamic_criteria, free_collection, , , , 0.0,, , ,
+set_dynamic_criteria, news_apps, news, , ,,, , ,
+
+# search collection
+search_collection, BIRDS
+search_collection, free
+search_collection, cricket
+search_collection, sports
+search_collection, neWs
+
+# search for all collections with empty search string
+search_collection,
+*/
+
+
+    /*
+    # define_collection, <collection_type>, <collection_id>, <collection_name>, <collection_description>
+    define_collection, static, sports_collection, sports, cool sports apps
+    define_collection, dynamic, news_apps, News Apps, All about News
+
+    # add_collection_content, <collection_id>, <content_type>, <content_id>
+     add_collection_content, sports_collection, collection, cricket_collection
+
+    # set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
+    set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
+    set_dynamic_criteria, news_apps, news, , ,,, , ,
+
+    # search collection
+    search_collection, neWs
+
+    # search for all collections with empty search string
+    search_collection,
+    */
+    private static void defineCollection(String[] collectionData) {
+
+        System.out.println("DEFINE COLLECTION: " + collectionData.toString() );
     }
 
-    /**
-     * Public method for importing {@link cscie97.asn3.ecommerce.product.Country} items into the product catalog.
-     * Checks for valid input file name.
-     * Throws ImportException on error accessing or processing the input Country File.
-     *
-     * @param filename                file with countries to load into the product catalog
-     * @throws ImportException        thrown when encountering non-parse related exceptions in the import process
-     * @throws ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
-     */
-    public static void importCountryFile(String guid, String filename) throws ImportException, ParseException {
-        int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
-        IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the countries
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            List<Country> countries = new ArrayList<Country>();
+    private static void addContentToCollection(String[] collectionData) {
 
-            while ((line = reader.readLine()) != null) {
-                lineNumber++;
-
-                // FIRST check if we encountered an empty line, and just skip to the next one if so
-                if (line.length() == 0) { continue; }
-
-                // SECOND check if the line contains column headers, since some lines may contain comments
-                // (preceeded by hash character); if first character is a hash, skip to next line
-                if (line.substring(0,1).matches("#")) { continue; }
-
-                String[] cleanedColumns = Importer.parseCSVLine(line, ",");
-                if (cleanedColumns != null && cleanedColumns.length == 3) {
-                    Country country = new Country(cleanedColumns[0], cleanedColumns[1], cleanedColumns[2]);
-                    countries.add(country);
-                } else {
-                    throw new ParseException("Import Country line contains invalid data for some of the country attributes.",
-                                                line,
-                                                lineNumber,
-                                                filename,
-                                                null);
-                }
-            }
-            // add the countries to the Product catalog
-            if (countries.size() > 0) {
-                productAPI.importCountries(guid, countries);
-            }
-        }
-        catch (FileNotFoundException fnfe) {
-            throw new ImportException("Could not find file ["+filename+"] to open for reading", lineNumber, filename, fnfe);
-        }
-        catch (IOException ioe) {
-            throw new ImportException("Encountered an IOException when trying to open ["+filename+"] for reading", lineNumber, filename, ioe);
-        }
-        catch (Exception e) {
-            throw new ImportException("Caught a generic Exception when attempting to read file ["+filename+"]", lineNumber, filename, e);
-        }
+        System.out.println("ADD CONTENT TO COLLECTION: " + collectionData.toString() );
     }
 
-    /**
-     * Public method for importing {@link cscie97.asn3.ecommerce.product.Device} items into the product catalog.
-     * Checks for valid input file name.
-     * Throws ImportException on error accessing or processing the input Device File.
-     *
-     * @param filename                file with devices to load into the product catalog
-     * @throws ImportException        thrown when encountering non-parse related exceptions in the import process
-     * @throws ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
-     */
-    public static void importDeviceFile(String guid, String filename) throws ImportException, ParseException {
-        int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
-        IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the devices
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            List<Device> devices = new ArrayList<Device>();
+    private static void setDynamicCriteria(String[] collectionData) {
 
-            while ((line = reader.readLine()) != null) {
-                lineNumber++;
-
-                // FIRST check if we encountered an empty line, and just skip to the next one if so
-                if (line.length() == 0) { continue; }
-
-                // SECOND check if the line contains column headers, since some lines may contain comments
-                // (preceeded by hash character); if first character is a hash, skip to next line
-                if (line.substring(0,1).matches("#")) { continue; }
-
-                String[] cleanedColumns = Importer.parseCSVLine(line, ",");
-                if (cleanedColumns != null && cleanedColumns.length == 3) {
-                    Device device = new Device(cleanedColumns[0], cleanedColumns[1], cleanedColumns[2]);
-                    devices.add(device);
-                } else {
-                    throw new ParseException("Import Device line contains invalid data for some of the device attributes.",
-                                                line,
-                                                lineNumber,
-                                                filename,
-                                                null);
-                }
-            }
-            // add the devices to the Product catalog
-            if (devices.size() > 0) {
-                productAPI.importDevices(guid, devices);
-            }
-        }
-        catch (FileNotFoundException fnfe) {
-            throw new ImportException("Could not find file ["+filename+"] to open for reading", lineNumber, filename, fnfe);
-        }
-        catch (IOException ioe) {
-            throw new ImportException("Encountered an IOException when trying to open ["+filename+"] for reading", lineNumber, filename, ioe);
-        }
-        catch (Exception e) {
-            throw new ImportException("Caught a generic Exception when attempting to read file ["+filename+"]", lineNumber, filename, e);
-        }
+        System.out.println("SET DYNAMIC CRITERIA: " + collectionData.toString() );
     }
 
-    /**
-     * Public method for importing {@link cscie97.asn3.ecommerce.product.Content} items into the product catalog.
-     * Note that any {@link cscie97.asn3.ecommerce.product.Device} or {@link cscie97.asn3.ecommerce.product.Country}
-     * items referenced by the individual content items to add must already exist in the Product catalog first, or the
-     * import of that content item will not work.  Depending on the content type of each item in the input file, will
-     * conditionally add the content items to the product catalog as either an
-     * {@link cscie97.asn3.ecommerce.product.Application},
-     * {@link cscie97.asn3.ecommerce.product.Ringtone}, or {@link cscie97.asn3.ecommerce.product.Wallpaper}.
-     * Checks for valid input file name.
-     * Throws ImportException on error accessing or processing the input Content File.
-     *
-     * @param filename                file with content items to load into the product catalog
-     * @throws ImportException        thrown when encountering non-parse related exceptions in the import process
-     * @throws ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
-     */
-    public static void importContentFile(String guid, String filename) throws ImportException, ParseException {
+    private static void searchCollections(String searchText) {
+
+        System.out.println("SEARCH COLLECTIONS: " + searchText );
+    }
+
+    public static void importCollectionsFile(String guid, String filename) throws ImportException, ParseException, CollectionNotFoundException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
         String line = null;  // store the text on each line as it's processed
-        IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the content items
+
+        // reference to CollectionServiceAPI for adding collections, adding content items, etc.
+        ICollectionServiceAPI collectionsAPI = CollectionServiceAPI.getInstance();
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             List<Content> contentItemsToAdd = new ArrayList<Content>();
@@ -265,8 +198,47 @@ public class Importer {
                 // (preceeded by hash character); if first character is a hash, skip to next line
                 if (line.substring(0,1).matches("#")) { continue; }
 
-                String[] cleanedColumns = Importer.parseCSVLine(line, ",");
+                //String[] cleanedColumns = Importer.parseCSVLine(line, ",");
+                String[] cleanedColumns = CollectionImporter.parseCSVLine(line, ",");
 
+                // depending on both the size of cleanedColumns as well as the first item in the array,
+                // call the appropriate method to handle the command
+
+
+                // set dynamic collection search criteria
+                if (cleanedColumns != null ) {
+
+                    // define collections
+                    if (cleanedColumns.length == 5 && cleanedColumns[0].equalsIgnoreCase("define_collection")) {
+                        CollectionImporter.defineCollection(cleanedColumns);
+                    }
+
+                    // add content to collections
+                    if (cleanedColumns.length == 4 && cleanedColumns[0].equalsIgnoreCase("add_collection_content")) {
+                        CollectionImporter.addContentToCollection(cleanedColumns);
+                    }
+
+                    // set dynamic collection content search crtieria
+                    if (cleanedColumns.length == 10 && cleanedColumns[0].equalsIgnoreCase("set_dynamic_criteria")) {
+                        CollectionImporter.setDynamicCriteria(cleanedColumns);
+                    }
+
+                    // search collections
+                    if (cleanedColumns.length == 2 && cleanedColumns[0].equalsIgnoreCase("search_collection")) {
+                        CollectionImporter.searchCollections(cleanedColumns[1].toLowerCase());
+                    }
+
+                }
+                else {
+                    throw new ParseException("Import Collections line contains invalid data for the collection data row.",
+                                                line,
+                                                lineNumber,
+                                                filename,
+                                                null);
+                }
+
+
+                /*
                 // depending on what info was supplied, the cleaned columns can be 12 to 16 columns in size,
                 // depending on content attribute supplied
                 if (cleanedColumns != null && cleanedColumns.length >= 12 && cleanedColumns.length <= 16) {
@@ -288,7 +260,7 @@ public class Importer {
                     Set<String> contentSupportedLanguages = new HashSet<String>(){};
                     ContentType contentType = null;
 
-                    List<ContentType> allContentTypes = Arrays.asList( ContentType.values());
+                    List<ContentType> allContentTypes = Arrays.asList(ContentType.values());
                     String upperCaseContentType = cleanedColumns[0].toUpperCase();
 
                     // get the content type
@@ -500,11 +472,16 @@ public class Importer {
                                                 filename,
                                                 null);
                 }
+                */
+
+
             }
+
             // add the content items to the Product catalog
-            if (contentItemsToAdd.size() > 0) {
-                productAPI.importContent(guid, contentItemsToAdd);
-            }
+            //if (contentItemsToAdd.size() > 0) {
+            //    //collectionsAPI.importContent(guid, contentItemsToAdd);
+            //}
+
         }
         catch (FileNotFoundException fnfe) {
             throw new ImportException("Could not find file ["+filename+"] to open for reading", lineNumber, filename, fnfe);

@@ -8,16 +8,16 @@
 , , 4, 0, , , , 
 
 # search for all content with a minimum rating of 4 and a price of 100.0 or less and text Bird|Ferrari
-, Bird|Ferrari, 4, 100.0, , , ,
+, Bird|Ferrari, 4, 100.0, , , , 
 
 # search for all content with a minimum rating of 4 and a price of 0 or less
-, bird|Ferrari, 4, 100.0, , , ,
+, bird|Ferrari, 4, 100.0, , , , 
 
 # search for all content with a minimum rating of 4 and a price of 0 or less
 , bird|Ferrari, 4, 1.5, , al|af|us|xx,lumina_800|iphone_5|iphone_6,ringtone|wallpaper|application
 
 # search for “News” in name or description
-, News, , , , , ,
+, News, , , , , , 
 
 # search for applications with “Cricket” in name or description
 , Cricket, , , , , , application

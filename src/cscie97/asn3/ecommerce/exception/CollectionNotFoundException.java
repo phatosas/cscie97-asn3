@@ -1,19 +1,16 @@
 package cscie97.asn3.ecommerce.exception;
 
 /**
- * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical
- * query execution.
+ * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.Importer} and
+ * {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical operation.  This class will
+ * wrap lower-level exceptions (such as FileNotFoundException, IOException, and generic Exception).
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
+ * @see cscie97.asn3.ecommerce.csv.Importer
  * @see cscie97.asn3.ecommerce.csv.SearchEngine
  */
-public class QueryEngineException extends Exception {
-
-    /**
-     * The original query string that triggered the exception
-     */
-    private String query;
+public class CollectionNotFoundException extends Exception {
 
     /**
      * The string line where the original exception originated in the import file
@@ -36,41 +33,21 @@ public class QueryEngineException extends Exception {
     private Throwable originalCause;
 
     /**
-     * Wraps a more generic exception that may have been thrown in the
-     * {@link cscie97.asn3.ecommerce.csv.SearchEngine} class.  Arguments contain more specific details about
-     * the exception to simplify debugging.
+     * Wraps a more generic exception that may have been thrown in either {@link cscie97.asn3.ecommerce.csv.Importer}
+     * or {@link cscie97.asn3.ecommerce.csv.SearchEngine} class.  Arguments contain more specific details about the
+     * exception to simplify debugging.
      *
-     * @param msg       the exception message from the throwing cause
-     * @param query     the string value of the line that caused the exception
+     * @param line      the string value of the line that caused the exception
      * @param lineNum   the line number in the file that caused the exception
      * @param filename  the filename that was the cause of the original exception
      * @param cause     the wrapped lower-level exception that triggered this exception's creation
      */
-    public QueryEngineException (String msg, String query, int lineNum, String filename, Throwable cause) {
-        super("QueryEngineException occurred on query [" + query + "] of query file " + filename + " in line number [" + lineNum + "]", cause);
-
-        this.query = query;
+    public CollectionNotFoundException (String line, int lineNum, String filename, Throwable cause) {
+        super("CollectionNotFoundException occurred at line #" + lineNum + " of file " + filename + " in line number [" + lineNum + "]", cause);
+        this.lineWhereFailed = line;
         this.lineIndexWhereFailed = lineNum;
         this.filename = filename;
         this.originalCause = cause;
-    }
-
-    /**
-     * Returns the original string query that triggered the exception
-     *
-     * @return   string query that triggered the exception
-     */
-    public String getQuery() {
-        return query;
-    }
-
-    /**
-     * Sets the original string query that triggered the exception
-     *
-     * @param  query   string query that triggered the exception
-     */
-    public void setQuery(String query) {
-        this.query = query;
     }
 
     /**

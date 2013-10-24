@@ -1,14 +1,14 @@
 package cscie97.asn3.ecommerce.exception;
 
 /**
- * Exception for problems that the {@link cscie97.asn3.ecommerce.product.Importer} or
- * {@link cscie97.asn3.ecommerce.product.SearchEngine} may run into during typical operation such as importing
+ * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.Importer} or
+ * {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical operation such as importing
  * Countries, Devices, Content, or executing queries.
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
- * @see cscie97.asn3.ecommerce.product.Importer
- * @see cscie97.asn3.ecommerce.product.SearchEngine
+ * @see cscie97.asn3.ecommerce.csv.Importer
+ * @see cscie97.asn3.ecommerce.csv.SearchEngine
  */
 public class ParseException extends Exception {
 
@@ -34,8 +34,8 @@ public class ParseException extends Exception {
 
 
     /**
-     * Wraps a more generic exception that may have been thrown in the {@link cscie97.asn3.ecommerce.product.Importer}
-     * or {@link cscie97.asn3.ecommerce.product.SearchEngine} classes.  Arguments contain more specific details about
+     * Wraps a more generic exception that may have been thrown in the {@link cscie97.asn3.ecommerce.csv.Importer}
+     * or {@link cscie97.asn3.ecommerce.csv.SearchEngine} classes.  Arguments contain more specific details about
      * the exception to simplify debugging.
      *
      * @param line      the string value of the line that caused the exception
@@ -48,8 +48,8 @@ public class ParseException extends Exception {
     }
 
     /**
-     * Wraps a more generic exception that may have been thrown in the {@link cscie97.asn3.ecommerce.product.Importer}
-     * or {@link cscie97.asn3.ecommerce.product.SearchEngine} classes.  Arguments contain more specific details about
+     * Wraps a more generic exception that may have been thrown in the {@link cscie97.asn3.ecommerce.csv.Importer}
+     * or {@link cscie97.asn3.ecommerce.csv.SearchEngine} classes.  Arguments contain more specific details about
      * the exception to simplify debugging.
      *
      * @param msg       the exception message from the throwing cause

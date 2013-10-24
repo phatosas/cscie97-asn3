@@ -1,13 +1,16 @@
 package cscie97.asn3.test;
 
+import cscie97.asn3.ecommerce.csv.CollectionImporter;
+import cscie97.asn3.ecommerce.csv.ContentImporter;
+import cscie97.asn3.ecommerce.exception.CollectionNotFoundException;
 import cscie97.asn3.ecommerce.exception.ImportException;
 import cscie97.asn3.ecommerce.exception.QueryEngineException;
 import cscie97.asn3.ecommerce.exception.ParseException;
-import cscie97.asn3.ecommerce.product.Importer;
+import cscie97.asn3.ecommerce.csv.Importer;
 import cscie97.asn3.ecommerce.product.IProductAPI;
 import cscie97.asn3.ecommerce.product.Content;
 import cscie97.asn3.ecommerce.product.ContentSearch;
-import cscie97.asn3.ecommerce.product.SearchEngine;
+import cscie97.asn3.ecommerce.csv.SearchEngine;
 
 /**
  * Test harness for the CSCI-E 97 Assignment 2.  Reads in several supplied input files to load
@@ -31,36 +34,47 @@ public class TestDriver {
      *     <li>filename of Countries CSV datafile</li>
      *     <li>filename of Devices CSV datafile</li>
      *     <li>filename of Products CSV datafile</li>
-     *     <li>filename of Search Queries CSV datafile</li>
+     *     <li>filename of Content Search Queries CSV datafile</li>
+     *     <li>filename of Collections CSV datafile</li>
      * </ol>
      *
-     * Calls several methods on the {@link cscie97.asn3.ecommerce.product.Importer} class to load the CSV datafile
-     * arguments, including {@link Importer#importCountryFile(String guid, String filename)},
-     * {@link Importer#importDeviceFile(String guid, String filename)},
-     * {@link Importer#importContentFile(String guid, String filename)}.  Once all Counties, Devices, and Content are
-     * loaded, calls {@link cscie97.asn3.ecommerce.product.SearchEngine#executeQueryFilename(String filename)} to
+     * Calls several methods on the {@link cscie97.asn3.ecommerce.csv.Importer} class to load the CSV datafile
+     * arguments, including {@link ContentImporter#importCountryFile(String guid, String filename)},
+     * {@link ContentImporter#importDeviceFile(String guid, String filename)},
+     * {@link ContentImporter#importContentFile(String guid, String filename)} and
+     * {@link CollectionImporter#importCollectionsFile(String guid, String filename)}.  Once all Counties, Devices,
+     * and Content are loaded, calls {@link cscie97.asn3.ecommerce.csv.SearchEngine#executeQueryFilename(String filename)} to
      * import a CSV of queries to run against the ProductAPI for content items.
+     * {@link CollectionImporter#importCollectionsFile(String guid, String filename)} will create new collections,
+     * add content items to collections, define the content serch criteria for
+     * {@link cscie97.asn3.ecommerce.collection.DynamicCollection}s, and execute searches for text on actual
+     * collections themselves.
      *
-     * All content item search queries and results are printed to standard out.
+     * All content item search queries and results, and collection search queries and results, are printed to
+     * standard out.
      *
      * @param args  first argument should a CSV datafile of Countries, second argument should be a CSV datafile of
-     *              Devices, third argument should be a CSV datafile of Content items, and fourth (and last) argument
-     *              should be a CSV datafile of content search query parameters
+     *              Devices, third argument should be a CSV datafile of Content items, fourth argument should be a
+     *              CSV datafile of content search query parameters, and fifth (and last) argument should be a CSV
+     *              datafile of collection definitions, adding content to collections, defining dynamic collection
+     *              search criteria, and collection searches
      */
     public static void main(String[] args) {
-        if (args.length == 4) {
+        if (args.length == 5) {
             try {
                 // later versions will require proper authentication and authorization to use restricted interface
                 // methods on the ProductAPI, but for now we will mock this using a fake GUID
                 String myGUID = "hope this works!";
 
-                Importer.importCountryFile(myGUID, args[0]);
+                ContentImporter.importCountryFile(myGUID, args[0]);
 
-                Importer.importDeviceFile(myGUID, args[1]);
+                ContentImporter.importDeviceFile(myGUID, args[1]);
 
-                Importer.importContentFile(myGUID, args[2]);
+                ContentImporter.importContentFile(myGUID, args[2]);
 
                 SearchEngine.executeQueryFilename(args[3]);
+
+                CollectionImporter.importCollectionsFile(myGUID, args[4]);
             }
             // if we catch a ParseException, either the original import of Countries, Devices, Content or the
             // execution of the Search Query caused the problem; in either case, the entire program execution should
@@ -81,13 +95,20 @@ public class TestDriver {
                 System.out.println(qee.getMessage());
                 System.exit(1);
             }
+            // if we catch a CollectionNotFoundException, adding content to collections, defining dynamic collection
+            // search criteria, or searching collections failed because of a bad ID passed, so the program should fail and exit
+            catch (CollectionNotFoundException cnfe) {
+                System.out.println(cnfe.getMessage());
+                System.exit(1);
+            }
         }
         else {
             System.out.println("Arguments to TestDriver should be: " +
                                     "1) import Countries CSV file, " +
                                     "2) import Devices CSV file, " +
                                     "3) import Products CSV file, and " +
-                                    "4) execute Search Query CSV file");
+                                    "4) execute Search Query CSV file" +
+                                    "5) Collections definitions and queries CSV file");
             System.exit(1);
         }
     }

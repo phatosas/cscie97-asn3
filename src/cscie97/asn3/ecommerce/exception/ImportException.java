@@ -1,14 +1,14 @@
 package cscie97.asn3.ecommerce.exception;
 
 /**
- * Exception for problems that the {@link cscie97.asn3.ecommerce.product.Importer} and
- * {@link cscie97.asn3.ecommerce.product.SearchEngine} may run into during typical operation.  This class will
+ * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.Importer} and
+ * {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical operation.  This class will
  * wrap lower-level exceptions (such as FileNotFoundException, IOException, and generic Exception).
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
- * @see cscie97.asn3.ecommerce.product.Importer
- * @see cscie97.asn3.ecommerce.product.SearchEngine
+ * @see cscie97.asn3.ecommerce.csv.Importer
+ * @see cscie97.asn3.ecommerce.csv.SearchEngine
  */
 public class ImportException extends Exception {
 
@@ -33,8 +33,8 @@ public class ImportException extends Exception {
     private Throwable originalCause;
 
     /**
-     * Wraps a more generic exception that may have been thrown in either {@link cscie97.asn3.ecommerce.product.Importer}
-     * or {@link cscie97.asn3.ecommerce.product.SearchEngine} class.  Arguments contain more specific details about the
+     * Wraps a more generic exception that may have been thrown in either {@link cscie97.asn3.ecommerce.csv.Importer}
+     * or {@link cscie97.asn3.ecommerce.csv.SearchEngine} class.  Arguments contain more specific details about the
      * exception to simplify debugging.
      *
      * @param line      the string value of the line that caused the exception
