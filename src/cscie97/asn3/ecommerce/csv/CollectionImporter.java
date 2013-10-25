@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.ArrayList;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Provides public static methods for supplying CSV files to load {@link cscie97.asn3.ecommerce.product.Country},
@@ -103,79 +106,91 @@ import java.util.ArrayList;
  */
 public class CollectionImporter extends Importer {
 
-/*
-# sample collections file for CSCIE97 Assignment 3
-
-# define collections
-# define_collection, <collection_type>, <collection_id>, <collection_name>, <collection_description>
-define_collection, static, sports_collection, sports, cool sports apps
-define_collection, dynamic, cricket_collection, Cricket, All things Cricket
-define_collection, dynamic, angry_birds_collection, Angry Birds Collection, All available Angry Birds Applications
-define_collection, dynamic, free_collection, Free, All available Free Content
-define_collection, dynamic, news_apps, News Apps, All about News
-
-# add content to collections
-# add_collection_content, <collection_id>, <content_type>, <content_id>
- add_collection_content, sports_collection, product, Yahoo!_Sports
- add_collection_content, sports_collection, product, Score_Center
- add_collection_content, sports_collection, collection, cricket_collection
-
-# set search criteria for dynamic cricket_collection, dynamic collection criteria are specified as with product api search criteria
-# set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
-set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
-set_dynamic_criteria, angry_birds_collection, , angry Birds, , , , , ,
-set_dynamic_criteria, free_collection, , , , 0.0,, , ,
-set_dynamic_criteria, news_apps, news, , ,,, , ,
-
-# search collection
-search_collection, BIRDS
-search_collection, free
-search_collection, cricket
-search_collection, sports
-search_collection, neWs
-
-# search for all collections with empty search string
-search_collection,
-*/
-
-
     /*
     # define_collection, <collection_type>, <collection_id>, <collection_name>, <collection_description>
     define_collection, static, sports_collection, sports, cool sports apps
     define_collection, dynamic, news_apps, News Apps, All about News
+    */
+    private static void defineCollection(String guid, String[] collectionData) throws ParseException {
 
+        // ensure that we have at least 5 elements passed and that the first element is "define_collection"
+        if (collectionData == null || collectionData.length != 5 || !collectionData[0].trim().equalsIgnoreCase("define_collection")) {
+            throw new ParseException("Import Collections line contains invalid data when calling definedCollections(): "+StringUtils.join(collectionData,","),
+                    null,
+                    0,
+                    null,
+                    null);
+        }
+
+        Collection collection = Collection.createCollection(collectionData[1].trim());
+        collection.setId(collectionData[2].trim());
+        collection.setName(collectionData[3].trim());
+        collection.setDescription(collectionData[4].trim());
+
+        ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
+        collectionAPI.addCollection(guid, collection);
+    }
+
+
+    /*
     # add_collection_content, <collection_id>, <content_type>, <content_id>
      add_collection_content, sports_collection, collection, cricket_collection
+     add_collection_content, sports_collection, product, Yahoo!_Sports
+     add_collection_content, sports_collection, product, Score_Center
+     add_collection_content, sports_collection, collection, cricket_collection
+    */
+    private static void addContentToCollection(String guid, String[] collectionData) throws ParseException {
+        // ensure that we have at least 4 elements passed and that the first element is "add_collection_content"
+        if (collectionData == null || collectionData.length != 4 || !collectionData[0].trim().equalsIgnoreCase("add_collection_content")) {
+            throw new ParseException("Import Collections line contains invalid data when calling addContentToCollection(): "+StringUtils.join(collectionData,","),
+                    null,
+                    0,
+                    null,
+                    null);
+        }
 
+        //Collection collection = Collection.createCollection(collectionData[1].trim());
+
+        // first, we
+
+
+
+
+        collection.setId(collectionData[2].trim());
+        collection.setName(collectionData[3].trim());
+        collection.setDescription(collectionData[4].trim());
+
+        ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
+        collectionAPI.addCollection(guid, collection);
+
+
+        //System.out.println("ADD CONTENT TO COLLECTION: " + collectionData.toString() );
+    }
+
+
+    /*
     # set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
     set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
     set_dynamic_criteria, news_apps, news, , ,,, , ,
-
-    # search collection
-    search_collection, neWs
-
-    # search for all collections with empty search string
-    search_collection,
     */
-    private static void defineCollection(String[] collectionData) {
-
-        System.out.println("DEFINE COLLECTION: " + collectionData.toString() );
-    }
-
-    private static void addContentToCollection(String[] collectionData) {
-
-        System.out.println("ADD CONTENT TO COLLECTION: " + collectionData.toString() );
-    }
-
-    private static void setDynamicCriteria(String[] collectionData) {
+    private static void setDynamicCriteria(String guid, String[] collectionData) throws ParseException {
 
         System.out.println("SET DYNAMIC CRITERIA: " + collectionData.toString() );
     }
 
-    private static void searchCollections(String searchText) {
+
+    /*
+    # search collection
+    search_collection, neWs
+    # search for all collections with empty search string
+    search_collection,
+    */
+    private static void searchCollections(String searchText) throws ParseException {
 
         System.out.println("SEARCH COLLECTIONS: " + searchText );
     }
+
+
 
     public static void importCollectionsFile(String guid, String filename) throws ImportException, ParseException, CollectionNotFoundException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
@@ -207,27 +222,30 @@ search_collection,
 
                 // set dynamic collection search criteria
                 if (cleanedColumns != null ) {
+                    try {
+                        // define collections
+                        if (cleanedColumns.length == 5 && cleanedColumns[0].equalsIgnoreCase("define_collection")) {
+                            CollectionImporter.defineCollection(guid, cleanedColumns);
+                        }
 
-                    // define collections
-                    if (cleanedColumns.length == 5 && cleanedColumns[0].equalsIgnoreCase("define_collection")) {
-                        CollectionImporter.defineCollection(cleanedColumns);
+                        // add content to collections
+                        if (cleanedColumns.length == 4 && cleanedColumns[0].equalsIgnoreCase("add_collection_content")) {
+                            CollectionImporter.addContentToCollection(guid, cleanedColumns);
+                        }
+
+                        // set dynamic collection content search crtieria
+                        if (cleanedColumns.length == 10 && cleanedColumns[0].equalsIgnoreCase("set_dynamic_criteria")) {
+                            CollectionImporter.setDynamicCriteria(guid, cleanedColumns);
+                        }
+
+                        // search collections
+                        if (cleanedColumns.length == 2 && cleanedColumns[0].equalsIgnoreCase("search_collection")) {
+                            CollectionImporter.searchCollections(cleanedColumns[1].toLowerCase());
+                        }
                     }
-
-                    // add content to collections
-                    if (cleanedColumns.length == 4 && cleanedColumns[0].equalsIgnoreCase("add_collection_content")) {
-                        CollectionImporter.addContentToCollection(cleanedColumns);
+                    catch (ParseException pe) {
+                        throw new ParseException(pe.getMessage(), line, lineNumber, filename, pe);
                     }
-
-                    // set dynamic collection content search crtieria
-                    if (cleanedColumns.length == 10 && cleanedColumns[0].equalsIgnoreCase("set_dynamic_criteria")) {
-                        CollectionImporter.setDynamicCriteria(cleanedColumns);
-                    }
-
-                    // search collections
-                    if (cleanedColumns.length == 2 && cleanedColumns[0].equalsIgnoreCase("search_collection")) {
-                        CollectionImporter.searchCollections(cleanedColumns[1].toLowerCase());
-                    }
-
                 }
                 else {
                     throw new ParseException("Import Collections line contains invalid data for the collection data row.",

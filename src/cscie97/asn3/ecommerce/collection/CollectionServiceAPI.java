@@ -68,31 +68,20 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public void addCollection(String guid, Collection collection) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        // ensure that the collection doesn't already exist
+        if (validateAccessToken(guid)) {
+            if (collection != null && Collection.validateCollection(collection)) {
+                this.topLevelCollections.add(collection);
+            }
+        }
     }
 
     @Override
     public void addContentToCollection(String guid, String collectionId, Collectible collectible) {
-        //To change body of implemented methods use File | Settings | File Templates.
+
+        ////To change body of implemented methods use File | Settings | File Templates.
     }
 
     @Override

@@ -13,7 +13,8 @@ public class DynamicCollection extends Collection {
 
     public ContentSearch searchCriteria;
 
-    public DynamicCollection  createCollection(String type){
-        return new DynamicCollection ();
-    }
+//    public DynamicCollection  createCollection(String type){
+//        return new DynamicCollection ();
+//    }
+
 }

@@ -15,7 +15,9 @@ public class StaticCollection extends Collection {
 
     public List<ContentProxy> contentItems = new ArrayList<ContentProxy>();
 
-    public StaticCollection createCollection(String type){
-        return new StaticCollection();
-    }
+//    public StaticCollection createCollection(String type){
+//        return new StaticCollection();
+//    }
+
+
 }
