@@ -1,6 +1,7 @@
 package cscie97.asn3.ecommerce.csv;
 
 import cscie97.asn3.ecommerce.exception.CollectionNotFoundException;
+import cscie97.asn3.ecommerce.exception.ContentNotFoundException;
 import cscie97.asn3.ecommerce.exception.ImportException;
 import cscie97.asn3.ecommerce.exception.ParseException;
 import cscie97.asn3.ecommerce.product.*;
@@ -139,7 +140,9 @@ public class CollectionImporter extends Importer {
      add_collection_content, sports_collection, product, Score_Center
      add_collection_content, sports_collection, collection, cricket_collection
     */
-    private static void addContentToCollection(String guid, String[] collectionData) throws ParseException {
+    private static void addContentToCollection(String guid, String[] collectionData)
+            throws ParseException, CollectionNotFoundException, ContentNotFoundException
+    {
         // ensure that we have at least 4 elements passed and that the first element is "add_collection_content"
         if (collectionData == null || collectionData.length != 4 || !collectionData[0].trim().equalsIgnoreCase("add_collection_content")) {
             throw new ParseException("Import Collections line contains invalid data when calling addContentToCollection(): "+StringUtils.join(collectionData,","),
@@ -149,22 +152,47 @@ public class CollectionImporter extends Importer {
                     null);
         }
 
-        //Collection collection = Collection.createCollection(collectionData[1].trim());
-
-        // first, we
-
-
-
-
-        collection.setId(collectionData[2].trim());
-        collection.setName(collectionData[3].trim());
-        collection.setDescription(collectionData[4].trim());
-
+        // first, we need to find the current collection based on the collectionID in the collection catalog
         ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
-        collectionAPI.addCollection(guid, collection);
+        Collection foundCollection = collectionAPI.getCollectionByID(collectionData[1].trim());
+        if (foundCollection == null) {
+            throw new CollectionNotFoundException("Add Content to Collection could not find the collection to add content to with ID:"+collectionData[1].trim()+" - arguments passed to addContentToCollection(): "+StringUtils.join(collectionData,","), 0, null, null);
+        }
+
+        // ensure that the type we're adding to the collection is either "collection" or "product"
+        if (collectionData[2] == null ||
+            collectionData[2].trim().length() == 0 ||
+            (!collectionData[2].trim().equalsIgnoreCase("collection") && !collectionData[2].trim().equalsIgnoreCase("product"))
+        ) {
+            throw new ContentNotFoundException("Add Content to Collection encountered an illegal value for type to add:"+collectionData[2].trim()+" - "+StringUtils.join(collectionData,","), 0, null, null);
+        }
+        // and also ensure that the content ID is not null and at least 1 character in length
+        if ( collectionData[3] == null || !(collectionData[3].trim().length() >= 1) ) {
+            throw new ContentNotFoundException("Add Content to Collection could not find the content item to add with ID: ["+collectionData[3].trim()+"] - "+StringUtils.join(collectionData,","), 0, null, null);
+        }
 
 
-        //System.out.println("ADD CONTENT TO COLLECTION: " + collectionData.toString() );
+        Collectible thingToAdd = null;
+
+        // add a child collection to a parent collection
+        if (collectionData[2].trim().equalsIgnoreCase("collection")) {
+            // find the collection to add
+            thingToAdd = collectionAPI.getCollectionByID(collectionData[3].trim());
+            if (thingToAdd == null) {
+                throw new CollectionNotFoundException("Add Content to Collection could not find the collection attempting to be added [ID: "+collectionData[3].trim()+"] to existing collection [ID:"+collectionData[1].trim()+"] - arguments passed to addContentToCollection(): "+StringUtils.join(collectionData,","), 0, null, null);
+            }
+        }
+        // add a child Content item to a parent collection
+        else if (collectionData[2].trim().equalsIgnoreCase("product")) {
+            // find the Content item to add, and if found, create a new ContentProxy object for the actual adding to the Collection
+            Content foundContent = ProductAPI.getInstance().getContentByID(collectionData[3].trim());
+            if (foundContent == null) {
+                throw new ContentNotFoundException("Add Content to Collection could not find the content item attempting to be added [ID: "+collectionData[3].trim()+"] to existing collection [ID:"+collectionData[1].trim()+"] - arguments passed to addContentToCollection(): "+StringUtils.join(collectionData,","), 0, null, null);
+            }
+            thingToAdd = new ContentProxy(foundContent.getID());
+        }
+
+        collectionAPI.addContentToCollection(guid, foundCollection.getId(), thingToAdd);
     }
 
 
@@ -173,9 +201,34 @@ public class CollectionImporter extends Importer {
     set_dynamic_criteria, cricket_collection, , cricket, , , , , ,
     set_dynamic_criteria, news_apps, news, , ,,, , ,
     */
-    private static void setDynamicCriteria(String guid, String[] collectionData) throws ParseException {
+    private static void setDynamicCriteria(String guid, String[] collectionData) throws ParseException, CollectionNotFoundException {
 
-        System.out.println("SET DYNAMIC CRITERIA: " + collectionData.toString() );
+        // ensure that we have at least 10 elements passed and that the first element is "set_dynamic_criteria"
+        if (collectionData == null || collectionData.length != 10 || !collectionData[0].trim().equalsIgnoreCase("set_dynamic_criteria")) {
+            throw new ParseException("Import Collections line contains invalid data when calling setDynamicCriteria(): "+StringUtils.join(collectionData,","),
+                    null,
+                    0,
+                    null,
+                    null);
+        }
+
+        // first, we need to find the current collection based on the collectionID in the collection catalog
+        ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
+        Collection foundCollection = collectionAPI.getCollectionByID(collectionData[1].trim());
+        if (foundCollection == null) {
+            throw new CollectionNotFoundException("Set Dynamic Criteria for Collection could not find the collection to set the dynamic content search criteria for with ID:"+collectionData[1].trim()+" - arguments passed to addContentToCollection(): "+StringUtils.join(collectionData,","), 0, null, null);
+        }
+
+        // ensure that we can construct our ContentSearch object based on the remaining parameters
+        ContentSearch searchCriteria = null;
+
+        // construct a string that contains ONLY the search criteria portion of the passed collectionData, and make
+        // sure to separate each element with a comma and a space character for correct parsing by SearchEngine
+        String csvSearchCriteria = StringUtils.join(Arrays.copyOfRange(collectionData, 2, collectionData.length), ", ");
+
+        searchCriteria = SearchEngine.getContentSearchForCSV(csvSearchCriteria);
+
+        CollectionServiceAPI.getInstance().setDynamicCollectionSearchCriteria(guid, foundCollection.getId(), searchCriteria);
     }
 
 

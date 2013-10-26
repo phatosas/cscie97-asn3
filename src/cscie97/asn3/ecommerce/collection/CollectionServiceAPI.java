@@ -1,9 +1,8 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.product.Content;
-import cscie97.asn3.ecommerce.product.Country;
-import cscie97.asn3.ecommerce.product.Device;
-import cscie97.asn3.ecommerce.product.IProductAPI;
+import cscie97.asn3.ecommerce.product.*;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -66,13 +65,31 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
         return false;
     }
 
+    /**
+     * Given a collection ID, search for any {@link cscie97.asn3.ecommerce.collection.Collection} that matches that
+     * code  in the collection catalog.
+     *
+     * @param collectionID  a unique collection ID
+     * @return              the found {@link cscie97.asn3.ecommerce.collection.Collection} with the matching ID
+     */
+     public Collection getCollectionByID(String collectionID) {
+
+         // TODO: use collection iterators to iterate over ALL collections and return the one that has the matching ID
+
+         for (Collection collection : this.topLevelCollections) {
+             if (collection.getId().equalsIgnoreCase(collectionID)) {
+                 return collection;
+             }
+         }
+         return null;
+     }
 
 
     @Override
     public void addCollection(String guid, Collection collection) {
-        // ensure that the collection doesn't already exist
         if (validateAccessToken(guid)) {
-            if (collection != null && Collection.validateCollection(collection)) {
+            // ensure the collection is valid and that it doesn't already exist at the top level
+            if (collection != null && Collection.validateCollection(collection) && !this.topLevelCollections.contains(collection)) {
                 this.topLevelCollections.add(collection);
             }
         }
@@ -80,19 +97,44 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
 
     @Override
     public void addContentToCollection(String guid, String collectionId, Collectible collectible) {
+        if (validateAccessToken(guid)) {
 
-        ////To change body of implemented methods use File | Settings | File Templates.
+            // TODO: check for cycles before adding the content to the collection, and disallow creating cycles
+
+            Collection foundCollection = this.getCollectionByID(collectionId);
+            if (foundCollection != null) {
+                foundCollection.add(collectible);
+            }
+        }
+    }
+
+    @Override
+    public void setDynamicCollectionSearchCriteria(String guid, String collectionId, ContentSearch searchCriteria) {
+        if (validateAccessToken(guid)) {
+            Collection foundCollection = this.getCollectionByID(collectionId);
+            if (foundCollection != null && foundCollection instanceof DynamicCollection) {
+                ((DynamicCollection)foundCollection).setSearchCriteria(searchCriteria);
+            }
+        }
     }
 
     @Override
     public List<Collection> searchCollections(String searchCriteria) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        List<Collection> matchingCollections = new ArrayList<Collection>();
+
+        // TODO: use collection iterators to loop over all collections and find matching ones based on the passed search criteria
+
+        return matchingCollections;
     }
+
 
     @Override
     public CollectionIterator getCollectionIterator(String collectionId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        Collection foundCollection = this.getCollectionByID(collectionId);
+        if (foundCollection != null) {
+            return foundCollection.getIterator();
+        }
+        else return null;
     }
-
 
 }

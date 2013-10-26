@@ -60,6 +60,15 @@ public interface IProductAPI {
     public Device getDeviceByID(String deviceID);
 
     /**
+     * Given a content ID, search for any {@link cscie97.asn3.ecommerce.product.Content} that matches that code
+     * in the product catalog.
+     *
+     * @param contentID  a unique content ID
+     * @return           the found {@link cscie97.asn3.ecommerce.product.Content} with the matching ID
+     */
+    public Content getContentByID(String contentID);
+
+    /**
      * Public method for importing countries into the product catalog.  Every
      * {@link cscie97.asn3.ecommerce.product.Content} item has a list of {@link cscie97.asn3.ecommerce.product.Country}
      * objects that the content item may be exported to.  The {@link cscie97.asn3.ecommerce.product.ProductAPI}

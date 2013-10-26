@@ -176,7 +176,7 @@ public class ProductAPI implements IProductAPI {
      * any of those devices will be returned.
      *
      * @param search a search object containing the criteria to use when searching the Product catalog
-     * @return list of all content items that match the supplied criteria in the search object
+     * @return list of all content items that match the supplied criteria in the search object, or an empty list if nothing found
      */
     public List<Content> searchContent(ContentSearch search) {
         List<Content> foundContent = new ArrayList<Content>();
@@ -251,7 +251,7 @@ public class ProductAPI implements IProductAPI {
     /**
      * Given a 2-character country code, search for any country that matches in the product catalog.
      * @param code  a 2-character country code
-     * @return      the found country with the matching code
+     * @return      the found country with the matching code, or null if not found
      */
     public Country getCountryByCode(String code) {
         for (Country country : this.countries) {
@@ -267,12 +267,28 @@ public class ProductAPI implements IProductAPI {
      * in the product catalog.
      *
      * @param deviceID  a unique device ID
-     * @return          the found {@link cscie97.asn3.ecommerce.product.Device} with the matching ID
+     * @return          the found {@link cscie97.asn3.ecommerce.product.Device} with the matching ID, or null if not found
      */
     public Device getDeviceByID(String deviceID) {
         for (Device device : this.devices) {
             if (device.getId().equalsIgnoreCase(deviceID)) {
                 return device;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Given a ontent ID, search for any {@link cscie97.asn3.ecommerce.product.Content} items that matches that code
+     * in the product catalog.
+     *
+     * @param contentID  a unique content ID
+     * @return           the found {@link cscie97.asn3.ecommerce.product.Content} with the matching ID, or null if not found
+     */
+    public Content getContentByID(String contentID) {
+        for (Content content : this.contentItems) {
+            if (content.getID().equalsIgnoreCase(contentID)) {
+                return content;
             }
         }
         return null;

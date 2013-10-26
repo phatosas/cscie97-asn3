@@ -13,13 +13,14 @@ define_collection, dynamic, news_apps, News Apps, All about News
  add_collection_content, sports_collection, product, Yahoo!_Sports
  add_collection_content, sports_collection, product, Score_Center
  add_collection_content, sports_collection, collection, cricket_collection
+### add_collection_content, foo_fake_collection, product, Yahoo!_Sports
 
 # set search criteria for dynamic cricket_collection, dynamic collection criteria are specified as with product api search criteria
 # set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
 set_dynamic_criteria, cricket_collection, , cricket, , , , , , 
 set_dynamic_criteria, angry_birds_collection, , angry Birds, , , , , , 
-set_dynamic_criteria, free_collection, , , , 0.0,, , , 
-set_dynamic_criteria, news_apps, news, , ,,, , , 
+set_dynamic_criteria, free_collection, , , , 0.0, , , , 
+set_dynamic_criteria, news_apps, news, , , , , , , 
 
 # search collection
 search_collection, BIRDS

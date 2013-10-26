@@ -55,18 +55,19 @@ import java.util.Arrays;
 public class SearchEngine {
 
     /**
-     * Given a string line from the original query CSV file, parse out the contents of the search query and create a
-     * new {@link cscie97.asn3.ecommerce.product.ContentSearch} object that can be passed to
-     * {@link cscie97.asn3.ecommerce.product.IProductAPI} to execute the actual query and find matching content items.
-     * Found matching content items are printed to standard out.
+     * Given a string line with content search criteria from the original query CSV file, parse the contents of the
+     * search query and create and return a new {@link cscie97.asn3.ecommerce.product.ContentSearch} object that can
+     * be passed to {@link cscie97.asn3.ecommerce.product.IProductAPI} to execute the actual query OR can be used in
+     * {@link cscie97.asn3.ecommerce.collection.DynamicCollection}s as the content item search criteria.
      *
-     * @param queryLine         the original line from the search CSV to search for matching content
+     * @param queryLine         the original line from the search CSV to search for matching content (should
+     *                          be in this format: "<category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>")
      * @throws ParseException   if there is an issue parsing out the search content query criteria from queryLine
      */
-    public static void executeQuery(String queryLine) throws ParseException {
+    public static ContentSearch getContentSearchForCSV(String queryLine) throws ParseException {
         // detect and reject invalid input query lines
         if (queryLine == null || queryLine.length() == 0) {
-            throw new ParseException("Search query line is invalid for parsing to search for content ["+queryLine+"]", null, -1, null, null);
+            throw new ParseException("Search query line is invalid for parsing to construct ContentSearch object for ["+queryLine+"]", null, -1, null, null);
         }
 
         IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for searching for content items
@@ -106,7 +107,7 @@ public class SearchEngine {
                 searchCriteria.setMinimumRating(Integer.parseInt(cleanedColumns[2]));
             }
             catch (NumberFormatException nfe) {
-                throw new ParseException("Execute Query line contains invalid data for the minimum content rating ["+cleanedColumns[2].toString()+"].",
+                throw new ParseException("Query line contains invalid data for the minimum content rating ["+cleanedColumns[2].toString()+"].",
                         queryLine,
                         -1,
                         null,
@@ -119,7 +120,7 @@ public class SearchEngine {
                 searchCriteria.setMaximumPrice(Float.parseFloat(cleanedColumns[3]));
             }
             catch (NumberFormatException nfe) {
-                throw new ParseException("Execute Query line contains invalid data for the maximum content price ["+cleanedColumns[3].toString()+"].",
+                throw new ParseException("Query line contains invalid data for the maximum content price ["+cleanedColumns[3].toString()+"].",
                         queryLine,
                         -1,
                         null,
@@ -182,11 +183,31 @@ public class SearchEngine {
                 }
             }
         }
+        return searchCriteria;
+    }
+
+    /**
+     * Given a string line from the original query CSV file, parse out the contents of the search query and create a
+     * new {@link cscie97.asn3.ecommerce.product.ContentSearch} object that can be passed to
+     * {@link cscie97.asn3.ecommerce.product.IProductAPI} to execute the actual query and find matching content items.
+     * Found matching content items are printed to standard out.
+     *
+     * @param queryLine         the original line from the search CSV to search for matching content
+     * @throws ParseException   if there is an issue parsing out the search content query criteria from queryLine
+     */
+    public static void executeQuery(String queryLine) throws ParseException {
+        ContentSearch searchCriteria = null;
+        try {
+            searchCriteria = SearchEngine.getContentSearchForCSV(queryLine);
+        }
+        catch (ParseException pe) {
+            throw pe;
+        }
 
         // show the original query as a ContentSearch
         System.out.println(String.format("CONTENT SEARCH QUERY: %s\n", searchCriteria));
 
-        List<Content> foundContent = productAPI.searchContent(searchCriteria);
+        List<Content> foundContent = ProductAPI.getInstance().searchContent(searchCriteria);
         if (foundContent.size() > 0) {
             System.out.println(String.format("\t[%d] CONTENT ITEMS MATCH YOUR SEARCH CRITERIA:\n\n", foundContent.size()));
         } else {

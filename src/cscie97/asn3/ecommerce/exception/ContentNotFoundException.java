@@ -1,16 +1,18 @@
 package cscie97.asn3.ecommerce.exception;
 
 /**
- * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.Importer} and
- * {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical operation.  This class will
- * wrap lower-level exceptions (such as FileNotFoundException, IOException, and generic Exception).
+ * Exception for problems that the {@link cscie97.asn3.ecommerce.csv.CollectionImporter},
+ * {@link cscie97.asn3.ecommerce.csv.ContentImporter}, or {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into
+ * during typical operation.  This class will wrap lower-level exceptions (such as FileNotFoundException, IOException,
+ * and generic Exception).
  *
  * @author David Killeffer <rayden7@gmail.com>
  * @version 1.0
- * @see cscie97.asn3.ecommerce.csv.Importer
+ * @see cscie97.asn3.ecommerce.csv.CollectionImporter
+ * @see cscie97.asn3.ecommerce.csv.ContentImporter
  * @see cscie97.asn3.ecommerce.csv.SearchEngine
  */
-public class ImportException extends MobileAppException {
+public class ContentNotFoundException extends MobileAppException {
 
 //    /**
 //     * The string line where the original exception originated in the import file
@@ -33,8 +35,9 @@ public class ImportException extends MobileAppException {
 //    private Throwable originalCause;
 
     /**
-     * Wraps a more generic exception that may have been thrown in either {@link cscie97.asn3.ecommerce.csv.Importer}
-     * or {@link cscie97.asn3.ecommerce.csv.SearchEngine} class.  Arguments contain more specific details about the
+     * Wraps a more generic exception that may have been thrown in either the
+     * {@link cscie97.asn3.ecommerce.csv.CollectionImporter}, {@link cscie97.asn3.ecommerce.csv.ContentImporter}, or
+     * {@link cscie97.asn3.ecommerce.csv.SearchEngine} classes.  Arguments contain more specific details about the
      * exception to simplify debugging.
      *
      * @param line      the string value of the line that caused the exception
@@ -42,11 +45,9 @@ public class ImportException extends MobileAppException {
      * @param filename  the filename that was the cause of the original exception
      * @param cause     the wrapped lower-level exception that triggered this exception's creation
      */
-    public ImportException (String line, int lineNum, String filename, Throwable cause) {
-
-        //super("ImportException occurred at line #" + lineNum + " of file " + filename + " in line number [" + lineNum + "]", cause);
-        super("ImportException", line, lineNum, filename, cause);
-
+    public ContentNotFoundException (String line, int lineNum, String filename, Throwable cause) {
+        super( "ContentNotFoundException", line, lineNum, filename, cause);
+//        super("ContentNotFoundException occurred at line #" + lineNum + " of file " + filename + " in line number [" + lineNum + "]", cause);
 //        this.lineWhereFailed = line;
 //        this.lineIndexWhereFailed = lineNum;
 //        this.filename = filename;

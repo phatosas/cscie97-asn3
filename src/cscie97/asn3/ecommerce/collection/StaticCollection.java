@@ -12,7 +12,6 @@ import java.util.List;
  */
 public class StaticCollection extends Collection {
 
-
     public List<ContentProxy> contentItems = new ArrayList<ContentProxy>();
 
 //    public StaticCollection createCollection(String type){

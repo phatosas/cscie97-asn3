@@ -20,14 +20,14 @@ public abstract class Collectible {
 
     public List<Collectible> children = new ArrayList<Collectible>();
 
-
     public void add(Collectible collectible) {
-
+        children.add(collectible);
     }
 
     public void remove(Collectible collectible) {
-
+        children.remove(collectible);
     }
+
     public List<Collectible> getChildren() {
         return this.children;
     }
@@ -35,6 +35,29 @@ public abstract class Collectible {
 
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 
 }
