@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class Collection extends Collectible {
 
-    public CollectionIterator iterator;
+    //public CollectionIterator iterator;
 
     public static Collection createCollection(String type) {
         if (type != null && type.length() > 0) {
@@ -36,6 +36,7 @@ public abstract class Collection extends Collectible {
         return false;
     }
 
+    /*
     public CollectionIterator getIterator() {
         return iterator;
     }
@@ -43,4 +44,7 @@ public abstract class Collection extends Collectible {
     public void setIterator(CollectionIterator iterator) {
         this.iterator = iterator;
     }
+    */
+
+
 }

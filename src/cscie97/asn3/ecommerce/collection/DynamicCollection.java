@@ -41,6 +41,9 @@ public class DynamicCollection extends Collection {
 
     public void executeSearch() {
         foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
+
+
+
     }
 
 

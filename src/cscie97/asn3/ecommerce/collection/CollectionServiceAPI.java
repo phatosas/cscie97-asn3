@@ -65,6 +65,23 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
         return false;
     }
 
+
+    public Collection createCollection(String type, String id) {
+
+        // TODO: ensure that there is no other collection that has the same ID (use collection iterator)
+
+        if (type != null && type.length() > 0) {
+            if (type.equalsIgnoreCase("static")) {
+                return new StaticCollection();
+            } else if (type.equalsIgnoreCase("dynamic")) {
+                return new DynamicCollection();
+            }
+        }
+        return null;
+    }
+
+
+
     /**
      * Given a collection ID, search for any {@link cscie97.asn3.ecommerce.collection.Collection} that matches that
      * code  in the collection catalog.
