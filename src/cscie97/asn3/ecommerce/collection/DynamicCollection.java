@@ -27,6 +27,16 @@ public class DynamicCollection extends Collection {
 
     public DynamicCollection(ContentSearch criteria) {
         this.searchCriteria = criteria;
+        //IProductAPI productAPI = ProductAPI.getInstance();
+
+        executeSearch();
+//        List<Content> foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
+//        for (Content content : foundContent) {
+//            ContentProxy cp = new ContentProxy(content);
+//            this.children.add(cp);
+//        }
+
+        //this.children = ProductAPI.getInstance().searchContent(this.searchCriteria);
     }
 
     public ContentSearch getSearchCriteria() {
@@ -35,15 +45,18 @@ public class DynamicCollection extends Collection {
 
     public void setSearchCriteria(ContentSearch searchCriteria) {
         this.searchCriteria = searchCriteria;
+        // in case the collection does not yet have any children, try to execute the search and find some content
+        executeSearch();
     }
 
-    public List<Content> foundContent = new ArrayList<Content>();
-
     public void executeSearch() {
-        foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
-
-
-
+        //foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
+        if (this.searchCriteria != null) {
+            for (Content content : ProductAPI.getInstance().searchContent(this.searchCriteria)) {
+                ContentProxy cp = new ContentProxy(content);
+                this.children.add(cp);
+            }
+        }
     }
 
 

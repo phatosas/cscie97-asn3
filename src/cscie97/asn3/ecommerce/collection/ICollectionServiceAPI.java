@@ -25,7 +25,10 @@ public interface ICollectionServiceAPI {
 
     public List<Collection> searchCollections(String searchCriteria);
 
-    public CollectionIterator getCollectionIterator(String collectionId);
+    //public CollectionIterator getCollectionIterator(String collectionId);
+    //public cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator getCollectionIterator(String collectionId);
+    //public CollectionIterator getCollectionIterator(String collectionId);
+    public Collectible.CollectionIterator getCollectionIterator(String collectionId);
 
     public boolean validateAccessToken(String guid);
 

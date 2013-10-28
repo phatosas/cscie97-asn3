@@ -44,4 +44,14 @@ public class ContentProxy extends Collectible {
         }
     }
 
+    public ContentProxy(Content contentItem) {
+        //Content content = ProductAPI.getInstance().getContentByID(contentId);
+        if (contentItem != null) {
+            this.contentItem = contentItem;
+            this.id = contentItem.getID();
+            this.name = contentItem.getName();
+            this.description = contentItem.getDescription();
+        }
+    }
+
 }

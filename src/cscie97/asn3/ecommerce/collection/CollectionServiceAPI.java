@@ -1,11 +1,12 @@
 package cscie97.asn3.ecommerce.collection;
 
 import cscie97.asn3.ecommerce.product.*;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Iterator;
+import cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -146,7 +147,10 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
 
 
     @Override
-    public CollectionIterator getCollectionIterator(String collectionId) {
+    //public Iterator getCollectionIterator(String collectionId) {
+    //public CollectionIterator getCollectionIterator(String collectionId) {
+    //public cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator getCollectionIterator(String collectionId) {
+    public Collectible.CollectionIterator getCollectionIterator(String collectionId) {
         Collection foundCollection = this.getCollectionByID(collectionId);
         if (foundCollection != null) {
             return foundCollection.getIterator();

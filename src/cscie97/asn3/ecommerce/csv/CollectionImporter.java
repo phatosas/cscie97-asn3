@@ -239,6 +239,29 @@ public class CollectionImporter extends Importer {
     search_collection,
     */
     private static void searchCollections(String searchText) throws ParseException {
+        ////// TEST: try to iterate over each collection
+        ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
+
+        Collectible.CollectionIterator sportsIterator = collectionAPI.getCollectionIterator("sports_collection");
+        if (sportsIterator != null) {
+            while (sportsIterator.hasNext()) {
+                Collectible collectible = sportsIterator.next();
+                System.out.println("Iterating over sports_collection: current item: ["+collectible+"]");
+            }
+        }
+
+        //Collection sportsCollection = collectionAPI.getCollectionByID("sports_collection");
+        //CollectionIterator iterator = sportsCollection.getIterator();
+
+
+        /*
+        define_collection, static, sports_collection, sports, cool sports apps
+        define_collection, dynamic, cricket_collection, Cricket, All things Cricket
+        define_collection, dynamic, angry_birds_collection, Angry Birds Collection, All available Angry Birds Applications
+        define_collection, dynamic, free_collection, Free, All available Free Content
+        define_collection, dynamic, news_apps, News Apps, All about News
+        */
+
 
         System.out.println("SEARCH COLLECTIONS: " + searchText );
     }

@@ -22,9 +22,9 @@ public abstract class Collectible {
 
     public CollectionIterator iterator = null;
 
-    public Iterator getIterator() {
+    public CollectionIterator getIterator() {
         if (iterator == null) {
-            CollectionIterator ci = new CollectionIterator();
+            CollectionIterator ci = new CollectionIterator(this);
             this.iterator = ci;
         }
         return this.iterator;
@@ -35,11 +35,12 @@ public abstract class Collectible {
     }
 
 
-    /*
     public void add(Collectible collectible) {
+        this.iterator = null;  // since we're modifying the collection, ensure that the next time the iterator is referenced it is re-created
         children.add(collectible);
     }
 
+    /*
     public void remove(Collectible collectible) {
         children.remove(collectible);
     }
@@ -93,7 +94,7 @@ public abstract class Collectible {
 
     public class CollectionIterator implements Iterator {
 
-       public Set<String> visitedNodeIDs = new HashSet<String>();
+       public List<String> visitedNodeIDs = new ArrayList<String>();
 
        public Stack<Collectible> itemStack = new Stack<Collectible>();
 
@@ -104,93 +105,64 @@ public abstract class Collectible {
 //               if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) {
 //               }
 //           }
-//
 //       }
 
         /*
         // sort all the children items at this level: put the StaticCollection and DynamicCollection objects first
         public List<Collectible> sortCollectiblesPutCollectionsFirst(Collectible c) {
-
             List<Collectible> sortedChildren = new ArrayList<Collectible>();
             for (Collectible child : c.getChildren()) {
                 if (child instanceof StaticCollection || child instanceof DynamicCollection) {
                     sortedChildren.add()
-
                 }
-
             }
             return
         }
         */
 
-
         public Collectible getitem(Collectible c) {
-            if (c instanceof StaticCollection || c instanceof DynamicCollection) {
-
-
-
-
-            }
-
-
-
+            if (c instanceof StaticCollection || c instanceof DynamicCollection) { }
+            return null;
         }
 
-        public CollectionIterator() {
-
-            //int j = children.size();
-
-            for (Collectible collectible : children) {
-
-                // first, find the items that are either StaticCollection or DynamicCollection objects, and skip the ContentProxy items for now
-                if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) {
-
-
-                }
-
-
-
-            }
-
+        public CollectionIterator(Collectible top) {
+            //for (Collectible collectible : children) {
+            //    // first, find the items that are either StaticCollection or DynamicCollection objects, and skip the ContentProxy items for now
+            //    if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) { }
+            //}
+            digDeeper(top);
         }
 
         public Collectible next() {
-            //return null;
             if (!hasNext()) {
                 throw new NoSuchElementException("no more items!");
             }
-
-
-
             Collectible collectible = itemStack.pop();
-
             currentItem = collectible;
+            visitedNodeIDs.add(collectible.getId());
 
-            for (Collectible child : collectible.getChildren()) {
-                if (child instanceof StaticCollection || child instanceof DynamicCollection) {
-
-                }
-            }
-
-
+            //for (Collectible child : collectible.getChildren()) {
+            //    if (child instanceof StaticCollection || child instanceof DynamicCollection) { }
+            //}
+            //return null;
+            return currentItem;
         }
 
-
         private void digDeeper(Collectible item) {
-
+            boolean leafLevel = false;
             for (Collectible child : item.getChildren()) {
+                itemStack.push(child);
                 if (child instanceof StaticCollection || child instanceof DynamicCollection) {
                     //return
                     digDeeper(child);
                 }
             }
-            itemStack.push(item);
         }
-
 
         public boolean hasNext() {
             return !this.itemStack.empty();
         }
+
         public void remove() {
             throw new UnsupportedOperationException();
         }
