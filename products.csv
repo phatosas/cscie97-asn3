@@ -16,3 +16,16 @@ application,zynga_poker_French_Canadian,Zynga Poker,Zynga Poker, Zynga,4, game|p
 # French-Canadian wallpaper of Zynga Poker - language code is "fr-CA";
 wallpaper,zynga_poker_French_Canadian_wp,Zynga Poker,Zynga Poker wallpaper, Zynga,5, game|poker|gambling|casino,CA,droid_x|iphone_5|iphone_6,0,fr-CA,http://company.zynga.com/nfs/files-0123-01/styles/featured_game_hero_large/public/featured-games-380-226-zp-game-board-01.png?itok=w2YdRcRD, , ,256,256
 
+# these are test items for use in testing the collection tree iterator
+application, A, App A, Description of content item A, Content Author A, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, B, App B, Description of content item B, Content Author B, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, C, App C, Description of content item C, Content Author C, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, D, App D, Description of content item D, Content Author D, 5, iteratorTest|news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, E, App E, Description of content item E, Content Author E, 5, iteratorTest|news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, F, App F, Description of content item F, Content Author F, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, G, App G, Description of content item G, Content Author G, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, H, App H, Description of content item H, Content Author H, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, I, App I, Description of content item I, Content Author I, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, J, App J, Description of content item J, Content Author J, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+application, K, App K, Description of content item K, Content Author K, 5, news|magazines,US|UK|IN,iphone_5|iphone_6|lumina_800|htc_one,0.0,en_us|en_ca|en_gb, http://www.google.com/,5000, , ,
+

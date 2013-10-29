@@ -12,8 +12,10 @@ import java.util.Stack;
  * Time: 12:51 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CollectionIterator implements Iterator {
+//public class CollectionIterator implements Iterator {
+public class CollectionIterator {
 
+    /*
     public Set<String> visitedNodeIDs = new HashSet<String>();
 
     public Stack<Collectible> items = new Stack<Collectible>();
@@ -36,5 +38,6 @@ public class CollectionIterator implements Iterator {
     public void remove() {
 
     }
+*/
 
 }

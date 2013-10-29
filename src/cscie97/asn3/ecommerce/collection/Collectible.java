@@ -94,11 +94,13 @@ public abstract class Collectible {
 
     public class CollectionIterator implements Iterator {
 
-       public List<String> visitedNodeIDs = new ArrayList<String>();
+        public List<String> visitedNodeIDs = new ArrayList<String>();
 
-       public Stack<Collectible> itemStack = new Stack<Collectible>();
+        public Stack<Collectible> itemStack = new Stack<Collectible>();
 
-       private Collectible currentItem = null;
+        private Collectible root = null;
+
+        private Collectible currentItem = null;
 
 //       public CollectionIterator(List<Collectible> items) {
 //           for ( Collectible collectible : items ) {
@@ -130,6 +132,8 @@ public abstract class Collectible {
             //    // first, find the items that are either StaticCollection or DynamicCollection objects, and skip the ContentProxy items for now
             //    if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) { }
             //}
+            root = top;
+
             digDeeper(top);
         }
 

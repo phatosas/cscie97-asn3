@@ -242,7 +242,8 @@ public class CollectionImporter extends Importer {
         ////// TEST: try to iterate over each collection
         ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
 
-        Collectible.CollectionIterator sportsIterator = collectionAPI.getCollectionIterator("sports_collection");
+        //Collectible.CollectionIterator sportsIterator = collectionAPI.getCollectionIterator("sports_collection");
+        Collectible.CollectionIterator sportsIterator = collectionAPI.getCollectionIterator("staticA");
         if (sportsIterator != null) {
             while (sportsIterator.hasNext()) {
                 Collectible collectible = sportsIterator.next();
