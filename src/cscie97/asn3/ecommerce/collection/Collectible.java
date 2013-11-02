@@ -85,8 +85,10 @@ public abstract class Collectible {
         this.description = description;
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.id;
+    }
 
 
 
@@ -94,47 +96,16 @@ public abstract class Collectible {
 
     public class CollectionIterator implements Iterator {
 
-        public List<String> visitedNodeIDs = new ArrayList<String>();
-
         public Stack<Collectible> itemStack = new Stack<Collectible>();
 
         private Collectible root = null;
 
         private Collectible currentItem = null;
 
-//       public CollectionIterator(List<Collectible> items) {
-//           for ( Collectible collectible : items ) {
-//               if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) {
-//               }
-//           }
-//       }
-
-        /*
-        // sort all the children items at this level: put the StaticCollection and DynamicCollection objects first
-        public List<Collectible> sortCollectiblesPutCollectionsFirst(Collectible c) {
-            List<Collectible> sortedChildren = new ArrayList<Collectible>();
-            for (Collectible child : c.getChildren()) {
-                if (child instanceof StaticCollection || child instanceof DynamicCollection) {
-                    sortedChildren.add()
-                }
-            }
-            return
-        }
-        */
-
-        public Collectible getitem(Collectible c) {
-            if (c instanceof StaticCollection || c instanceof DynamicCollection) { }
-            return null;
-        }
-
         public CollectionIterator(Collectible top) {
-            //for (Collectible collectible : children) {
-            //    // first, find the items that are either StaticCollection or DynamicCollection objects, and skip the ContentProxy items for now
-            //    if (collectible instanceof StaticCollection || collectible instanceof DynamicCollection) { }
-            //}
             root = top;
-
-            digDeeper(top);
+            itemStack.push(top);
+            buildItemStack(top);
         }
 
         public Collectible next() {
@@ -143,22 +114,14 @@ public abstract class Collectible {
             }
             Collectible collectible = itemStack.pop();
             currentItem = collectible;
-            visitedNodeIDs.add(collectible.getId());
-
-            //for (Collectible child : collectible.getChildren()) {
-            //    if (child instanceof StaticCollection || child instanceof DynamicCollection) { }
-            //}
-            //return null;
             return currentItem;
         }
 
-        private void digDeeper(Collectible item) {
-            boolean leafLevel = false;
-            for (Collectible child : item.getChildren()) {
-                itemStack.push(child);
-                if (child instanceof StaticCollection || child instanceof DynamicCollection) {
-                    //return
-                    digDeeper(child);
+        private void buildItemStack(Collectible item) {
+            for (Collectible curChild : item.getChildren()) {
+                itemStack.push(curChild);
+                if (curChild instanceof StaticCollection || curChild instanceof DynamicCollection) {
+                    buildItemStack(curChild);
                 }
             }
         }
