@@ -1,8 +1,5 @@
 package cscie97.asn3.ecommerce.collection;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
  * User: dkilleffer
@@ -11,8 +8,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class Collection extends Collectible {
-
-    //public CollectionIterator iterator;
 
     public static Collection createCollection(String type) {
         if (type != null && type.length() > 0) {
@@ -35,16 +30,5 @@ public abstract class Collection extends Collectible {
         }
         return false;
     }
-
-    /*
-    public CollectionIterator getIterator() {
-        return iterator;
-    }
-
-    public void setIterator(CollectionIterator iterator) {
-        this.iterator = iterator;
-    }
-    */
-
 
 }

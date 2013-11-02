@@ -1,12 +1,8 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.product.ContentSearch;
 import cscie97.asn3.ecommerce.product.Content;
-import cscie97.asn3.ecommerce.product.IProductAPI;
+import cscie97.asn3.ecommerce.product.ContentSearch;
 import cscie97.asn3.ecommerce.product.ProductAPI;
-
-import java.util.List;
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,26 +13,13 @@ import java.util.ArrayList;
  */
 public class DynamicCollection extends Collection {
 
-    public ContentSearch searchCriteria;
-
-//    public DynamicCollection  createCollection(String type){
-//        return new DynamicCollection ();
-//    }
+    private ContentSearch searchCriteria;
 
     public DynamicCollection() { }
 
     public DynamicCollection(ContentSearch criteria) {
         this.searchCriteria = criteria;
-        //IProductAPI productAPI = ProductAPI.getInstance();
-
         executeSearch();
-//        List<Content> foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
-//        for (Content content : foundContent) {
-//            ContentProxy cp = new ContentProxy(content);
-//            this.children.add(cp);
-//        }
-
-        //this.children = ProductAPI.getInstance().searchContent(this.searchCriteria);
     }
 
     public ContentSearch getSearchCriteria() {
@@ -50,14 +33,12 @@ public class DynamicCollection extends Collection {
     }
 
     public void executeSearch() {
-        //foundContent = ProductAPI.getInstance().searchContent(this.searchCriteria);
         if (this.searchCriteria != null) {
             for (Content content : ProductAPI.getInstance().searchContent(this.searchCriteria)) {
                 ContentProxy cp = new ContentProxy(content);
-                this.children.add(cp);
+                this.add(cp);
             }
         }
     }
-
 
 }

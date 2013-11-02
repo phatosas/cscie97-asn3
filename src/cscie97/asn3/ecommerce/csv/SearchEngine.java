@@ -1,18 +1,15 @@
 package cscie97.asn3.ecommerce.csv;
 
-import cscie97.asn3.ecommerce.exception.ImportException;
-import cscie97.asn3.ecommerce.exception.ParseException;
-import cscie97.asn3.ecommerce.exception.QueryEngineException;
+import cscie97.asn3.ecommerce.exception.*;
 import cscie97.asn3.ecommerce.product.*;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Provides public static methods for querying the {@link cscie97.asn3.ecommerce.product.ProductAPI} for

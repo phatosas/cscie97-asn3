@@ -1,12 +1,11 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.product.*;
+import cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator;
+import cscie97.asn3.ecommerce.product.ContentSearch;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Iterator;
-import cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -113,14 +112,26 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
         }
     }
 
+    /**
+     * Adds a Collectible to the collection specified by the <c>collectionId</c>.  Because Collections are trees, will not
+     *
+     * @param guid
+     * @param collectionId
+     * @param collectible
+     */
     @Override
     public void addContentToCollection(String guid, String collectionId, Collectible collectible) {
         if (validateAccessToken(guid)) {
-
-            // TODO: check for cycles before adding the content to the collection, and disallow creating cycles
-
             Collection foundCollection = this.getCollectionByID(collectionId);
             if (foundCollection != null) {
+                List<String> preexistingIDs = new ArrayList<String>();
+                CollectionIterator iterator = foundCollection.getIterator();
+                while (iterator.hasNext()) {
+                    Collectible currentCollectible  = iterator.next();
+                    preexistingIDs.add(currentCollectible.getId());
+                }
+
+
                 foundCollection.add(collectible);
             }
         }
@@ -137,19 +148,42 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
     }
 
     @Override
-    public List<Collection> searchCollections(String searchCriteria) {
-        List<Collection> matchingCollections = new ArrayList<Collection>();
+    public Set<Collection> searchCollections(String searchCriteria) {
+        // construct a virtual "root" collection that has all the "topLevelCollections" as children; then use the
+        // iterator for this virtual top-level collection to iterate over all collections and find ones that match
+        // name/description to the searchCirteria
+        Collection virtual = Collection.createCollection("static");
 
-        // TODO: use collection iterators to loop over all collections and find matching ones based on the passed search criteria
+        virtual.setId("virtualRoot");
+        virtual.setName("virtualRoot");
+        virtual.setDescription("Virtual root level collection containing all child collections.");
 
+        for (Collectible c : this.topLevelCollections) {
+            virtual.add(c);
+        }
+        CollectionIterator iterator = virtual.getIterator();
+
+        Set<Collection> matchingCollections = new HashSet<Collection>();
+
+        while (iterator.hasNext()) {
+            Collectible currentCollectible = iterator.next();
+
+            if (!(currentCollectible instanceof StaticCollection) && !(currentCollectible instanceof DynamicCollection)) {
+                continue;
+            }
+
+            if ((searchCriteria != null && searchCriteria.length() > 0) && currentCollectible.getName().toLowerCase().contains(searchCriteria.trim().toLowerCase())) {
+                matchingCollections.add((Collection)currentCollectible);
+            }
+            else if (searchCriteria == null || searchCriteria.length() == 0) {
+                matchingCollections.add((Collection)currentCollectible);
+            }
+        }
         return matchingCollections;
     }
 
 
     @Override
-    //public Iterator getCollectionIterator(String collectionId) {
-    //public CollectionIterator getCollectionIterator(String collectionId) {
-    //public cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator getCollectionIterator(String collectionId) {
     public Collectible.CollectionIterator getCollectionIterator(String collectionId) {
         Collection foundCollection = this.getCollectionByID(collectionId);
         if (foundCollection != null) {

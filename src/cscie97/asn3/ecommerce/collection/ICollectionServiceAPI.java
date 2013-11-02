@@ -1,9 +1,7 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.product.*;
-import cscie97.asn3.ecommerce.exception.*;
-
-import java.util.List;
+import cscie97.asn3.ecommerce.product.ContentSearch;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,17 +15,11 @@ public interface ICollectionServiceAPI {
     public void addCollection(String guid, Collection collection);
 
     public void addContentToCollection(String guid, String collectionId, Collectible collectible);
-    //public void addContentToCollection(String guid, String collectionId, ContentProxy contentProxy);
-    //public void addContentToCollection(String guid, String collectionId, Collection childCollection);
-
 
     public void setDynamicCollectionSearchCriteria(String guid, String collectionId, ContentSearch searchCriteria);
 
-    public List<Collection> searchCollections(String searchCriteria);
+    public Set<Collection> searchCollections(String searchCriteria);
 
-    //public CollectionIterator getCollectionIterator(String collectionId);
-    //public cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator getCollectionIterator(String collectionId);
-    //public CollectionIterator getCollectionIterator(String collectionId);
     public Collectible.CollectionIterator getCollectionIterator(String collectionId);
 
     public boolean validateAccessToken(String guid);

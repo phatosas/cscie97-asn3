@@ -7,7 +7,6 @@ define_collection, dynamic, cricket_collection, Cricket, All things Cricket
 define_collection, dynamic, angry_birds_collection, Angry Birds Collection, All available Angry Birds Applications
 define_collection, dynamic, free_collection, Free, All available Free Content
 define_collection, dynamic, news_apps, News Apps, All about News
-
 define_collection, static, staticA, StaticA, This collection is for testing the DFS CollectionIterator
 define_collection, dynamic, dynamicB, DynamicB, This collection is for testing the DFS CollectionIterator
 define_collection, static, staticC, StaticC, This collection is for testing the DFS CollectionIterator
@@ -17,7 +16,6 @@ define_collection, static, staticC, StaticC, This collection is for testing the 
 add_collection_content, sports_collection, product, Yahoo!_Sports
 add_collection_content, sports_collection, product, Score_Center
 add_collection_content, sports_collection, collection, cricket_collection
-
 add_collection_content, staticA, product, A
 add_collection_content, staticA, product, B
 add_collection_content, staticA, product, C
@@ -25,8 +23,6 @@ add_collection_content, staticA, collection, dynamicB
 add_collection_content, dynamicB, collection, staticC
 add_collection_content, staticC, product, F
 add_collection_content, staticC, product, G
-
-### add_collection_content, foo_fake_collection, product, Yahoo!_Sports
 
 # set search criteria for dynamic cricket_collection, dynamic collection criteria are specified as with product api search criteria
 # set_dynamic_criteria, <collection_id>, <category list>, <text search>, <minimum rating>, <max price>, <language list>, <country code>, <device id>, <content type list>
@@ -68,11 +64,6 @@ set_dynamic_criteria, dynamicB, iteratorTest, , , , , , ,
 #    dynamicB
 #    staticA
 #
-#
-#
-#
-#
-
 
 # search collection
 search_collection, BIRDS

@@ -1,8 +1,6 @@
 package cscie97.asn3.ecommerce.csv;
 
-import cscie97.asn3.ecommerce.exception.CollectionNotFoundException;
-import cscie97.asn3.ecommerce.exception.ImportException;
-import cscie97.asn3.ecommerce.exception.ParseException;
+import cscie97.asn3.ecommerce.exception.*;
 import cscie97.asn3.ecommerce.product.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -106,6 +104,7 @@ public class ContentImporter extends Importer {
      * Checks for valid input file name.
      * Throws ImportException on error accessing or processing the input Country File.
      *
+     * @param guid                    access token for carrying out restricted interface actions such as this
      * @param filename                file with countries to load into the product catalog
      * @throws cscie97.asn3.ecommerce.exception.ImportException        thrown when encountering non-parse related exceptions in the import process
      * @throws cscie97.asn3.ecommerce.exception.ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
@@ -125,7 +124,7 @@ public class ContentImporter extends Importer {
                 if (line.length() == 0) { continue; }
 
                 // SECOND check if the line contains column headers, since some lines may contain comments
-                // (preceeded by hash character); if first character is a hash, skip to next line
+                // (preceded by hash character); if first character is a hash, skip to next line
                 if (line.substring(0,1).matches("#")) { continue; }
 
                 String[] cleanedColumns = ContentImporter.parseCSVLine(line, ",");
@@ -161,6 +160,7 @@ public class ContentImporter extends Importer {
      * Checks for valid input file name.
      * Throws ImportException on error accessing or processing the input Device File.
      *
+     * @param guid                    access token for carrying out restricted interface actions such as this
      * @param filename                file with devices to load into the product catalog
      * @throws ImportException        thrown when encountering non-parse related exceptions in the import process
      * @throws ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
@@ -222,6 +222,7 @@ public class ContentImporter extends Importer {
      * Checks for valid input file name.
      * Throws ImportException on error accessing or processing the input Content File.
      *
+     * @param guid                    access token for carrying out restricted interface actions such as this
      * @param filename                file with content items to load into the product catalog
      * @throws ImportException        thrown when encountering non-parse related exceptions in the import process
      * @throws ParseException         thrown when encountering any issues parsing the input file related to the format of the file contents
@@ -241,7 +242,7 @@ public class ContentImporter extends Importer {
                 if (line.length() == 0) { continue; }
 
                 // SECOND check if the line contains column headers, since some lines may contain comments
-                // (preceeded by hash character); if first character is a hash, skip to next line
+                // (preceded by hash character); if first character is a hash, skip to next line
                 if (line.substring(0,1).matches("#")) { continue; }
 
                 String[] cleanedColumns = ContentImporter.parseCSVLine(line, ",");
@@ -453,7 +454,6 @@ public class ContentImporter extends Importer {
                                                             filename,
                                                             null);
                             }
-                            //contentItemsToAdd.add(ringtone);
                             break;
                         case WALLPAPER :
                             Wallpaper wallpaper = new Wallpaper(contentID, contentName, contentDescription, contentAuthorName,
@@ -469,7 +469,6 @@ public class ContentImporter extends Importer {
                                                             filename,
                                                             null);
                             }
-                            //contentItemsToAdd.add(wallpaper);
                             break;
                     }
                 } else {
