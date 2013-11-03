@@ -8,7 +8,7 @@ import java.util.Set;
  * match searchText in the Collection name or description.  Administrators may also create collections, add content to
  * collections, and for DynamicCollections, define the search criteria used.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.Collection
  * @see cscie97.asn3.ecommerce.collection.Collectible

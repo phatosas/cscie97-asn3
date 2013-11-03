@@ -27,7 +27,7 @@ import java.util.Set;
  * items may be added to the Product catalog and made publicly searchable; those use cases are supported by means of
  * the {@link cscie97.asn3.ecommerce.product.IProductAPI}.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see ProductAPI
  * @see ContentSearch

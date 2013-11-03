@@ -5,7 +5,7 @@ package cscie97.asn3.ecommerce.exception;
  * {@link cscie97.asn3.ecommerce.product}, or {@link cscie97.asn3.ecommerce.csv} classes. This class will wrap
  * lower-level exceptions (such as FileNotFoundException, IOException, ParseException, and generic Exception).
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.csv.ContentImporter
  * @see cscie97.asn3.ecommerce.csv.CollectionImporter

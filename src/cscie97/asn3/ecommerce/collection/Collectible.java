@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * {@link cscie97.asn3.ecommerce.collection.Collectible#description}) from this class.
  *
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.Collection
  * @see cscie97.asn3.ecommerce.collection.Collectible
@@ -58,15 +58,14 @@ public abstract class Collectible {
     /**
      * Returns the iterator for the current collection.  The iterator also follows the Singleton pattern; once the
      * iterator has been declared and initialized, the already-declared one will be returned.  If the iterator has
-     * not been defined when {@link Collectible#getIterator()} is called, a new
+     * not been defined when getIterator() is called, a new
      * {@link cscie97.asn3.ecommerce.collection.CollectionIterator} will be created and initialized.
      *
      * @return  the iterator for the Collectible
      */
     public CollectionIterator getIterator() {
         if (iterator == null) {
-            CollectionIterator ci = new CollectionIterator(this);
-            this.iterator = ci;
+            this.iterator = new CollectionIterator(this);
         }
         return this.iterator;
     }
@@ -166,12 +165,11 @@ public abstract class Collectible {
      */
     @Override
     public String toString() {
-        String formattedString = String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
-                                                this.getClass().getSimpleName(),
-                                                this.getId(),
-                                                this.getName(),
-                                                this.getDescription());
-        return formattedString;
+        return String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
+                this.getClass().getSimpleName(),
+                this.getId(),
+                this.getName(),
+                this.getDescription());
     }
 
 }

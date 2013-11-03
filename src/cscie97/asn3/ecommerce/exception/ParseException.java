@@ -5,7 +5,7 @@ package cscie97.asn3.ecommerce.exception;
  * {@link cscie97.asn3.ecommerce.csv.SearchEngine} may run into during typical operation such as importing
  * Countries, Devices, Content, or executing queries.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.csv.Importer
  * @see cscie97.asn3.ecommerce.csv.SearchEngine
@@ -15,7 +15,7 @@ public class ParseException extends Exception {
     /**
      * The string line where the original exception originated in the import file
      */
-    private String lineWhereFailed = new String();
+    private String lineWhereFailed;
 
     /**
      * The line number of the import file that triggered the original exception
@@ -25,7 +25,7 @@ public class ParseException extends Exception {
     /**
      * Name of the imported file that triggered the original exception
      */
-    private String filename = new String();
+    private String filename;
 
     /**
      * The original exception that this class wraps with more specific information

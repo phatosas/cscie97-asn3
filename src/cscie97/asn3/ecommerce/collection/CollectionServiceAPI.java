@@ -17,7 +17,7 @@ import java.util.Set;
  * The CollectionServiceAPI is accessed as a Singleton; users must use the {@link CollectionServiceAPI#getInstance()}
  * method to obtain a reference to the sole CollectionServiceAPI instance.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.Collection
  * @see cscie97.asn3.ecommerce.collection.Collectible
@@ -230,10 +230,7 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
      *              false otherwise
      */
     public boolean validateAccessToken(String guid) {
-        if (guid != null && guid.length() > 0) {
-            return true;
-        }
-        return false;
+        return guid != null && guid.length() > 0;
     }
 
     // end region: implementing methods from ICollectionServiceAPI (yes, I got used to having these in C#)

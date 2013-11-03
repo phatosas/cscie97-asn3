@@ -7,7 +7,7 @@ package cscie97.asn3.ecommerce.product;
  * <a href="http://isites.harvard.edu/icb/icb.do?keyword=k97402&panel=icb.pagecontent1356729%3Arforum%3Fforum_id%3D139804&pageid=icb.page626866&pageContentId=icb.pagecontent1356729&view=message&viewParam_message_id=910984#a_icb_pagecontent1356729">
  * this discussion formum post</a> for more detail).
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see ProductAPI
  * @see Content

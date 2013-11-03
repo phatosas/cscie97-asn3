@@ -27,7 +27,7 @@ import org.apache.commons.collections4.CollectionUtils;
  * {@link cscie97.asn3.ecommerce.product.Country} object so as to not needlessly duplicate things and waste memory
  * and resources.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see ProductAPI
  * @see Content
@@ -86,10 +86,7 @@ public class ProductAPI implements IProductAPI {
      * @return true if guid is authenticated and authorized to execute restricted actions on ProductAPI, false otherwise
      */
     public boolean validateAccessToken(String guid) {
-        if (guid != null && guid.length() > 0) {
-            return true;
-        }
-        return false;
+        return guid != null && guid.length() > 0;
     }
 
     /**
@@ -242,7 +239,6 @@ public class ProductAPI implements IProductAPI {
             // to return all content that is free and has a zero price)
             if ( search.getMaximumPrice() >= item.getPrice() ) {
                 foundContent.add(item);
-                continue;
             }
         }
         return foundContent;

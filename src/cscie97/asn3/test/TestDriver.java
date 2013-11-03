@@ -18,7 +18,7 @@ import cscie97.asn3.ecommerce.csv.SearchEngine;
  * {@link cscie97.asn3.ecommerce.product.Content} items, and finally runs several search queries against the
  * {@link cscie97.asn3.ecommerce.product.IProductAPI} to find the content that was loaded.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see Importer
  * @see IProductAPI

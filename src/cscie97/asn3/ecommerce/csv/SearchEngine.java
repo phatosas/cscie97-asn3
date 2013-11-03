@@ -39,7 +39,7 @@ import java.util.List;
  * </pre>
  * Content items found are printed to standard out.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.product.IProductAPI
  * @see cscie97.asn3.ecommerce.product.ProductAPI
@@ -104,7 +104,7 @@ public class SearchEngine {
                 searchCriteria.setMinimumRating(Integer.parseInt(cleanedColumns[2]));
             }
             catch (NumberFormatException nfe) {
-                throw new ParseException("Query line contains invalid data for the minimum content rating ["+cleanedColumns[2].toString()+"].",
+                throw new ParseException("Query line contains invalid data for the minimum content rating ["+cleanedColumns[2]+"].",
                         queryLine,
                         -1,
                         null,
@@ -117,7 +117,7 @@ public class SearchEngine {
                 searchCriteria.setMaximumPrice(Float.parseFloat(cleanedColumns[3]));
             }
             catch (NumberFormatException nfe) {
-                throw new ParseException("Query line contains invalid data for the maximum content price ["+cleanedColumns[3].toString()+"].",
+                throw new ParseException("Query line contains invalid data for the maximum content price ["+cleanedColumns[3]+"].",
                         queryLine,
                         -1,
                         null,
@@ -163,7 +163,6 @@ public class SearchEngine {
             }
         }
         // get the search content types
-        List<ContentType> allContentTypes = Arrays.asList( ContentType.values());
         if (cleanedColumns[7] != null && cleanedColumns[7].length() > 0) {
             // need to parse out the content types by splitting on the pipe character
             String[] parsedContentTypes = Importer.parseCSVLine(cleanedColumns[7], "\\|");
@@ -193,13 +192,7 @@ public class SearchEngine {
      * @throws ParseException   if there is an issue parsing out the search content query criteria from queryLine
      */
     public static void executeQuery(String queryLine) throws ParseException {
-        ContentSearch searchCriteria = null;
-        try {
-            searchCriteria = SearchEngine.getContentSearchForCSV(queryLine);
-        }
-        catch (ParseException pe) {
-            throw pe;
-        }
+        ContentSearch searchCriteria = SearchEngine.getContentSearchForCSV(queryLine);
 
         // show the original query as a ContentSearch
         System.out.println(String.format("CONTENT SEARCH QUERY: %s\n", searchCriteria));
@@ -244,10 +237,9 @@ public class SearchEngine {
      */
     public static void executeQueryFilename(String filename) throws QueryEngineException, ImportException, ParseException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
+        String line;  // store the text on each line as it's processed
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
-            List<Content> contentItemsToAdd = new ArrayList<Content>();
             while ((line = reader.readLine()) != null) {
                 lineNumber++;
 

@@ -87,7 +87,7 @@ import java.util.Set;
  * ...
  * </pre>
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.product.IProductAPI
  * @see cscie97.asn3.ecommerce.product.ProductAPI
@@ -111,7 +111,7 @@ public class ContentImporter extends Importer {
      */
     public static void importCountryFile(String guid, String filename) throws ImportException, ParseException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
+        String line;  // store the text on each line as it's processed
         IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the countries
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -167,7 +167,7 @@ public class ContentImporter extends Importer {
      */
     public static void importDeviceFile(String guid, String filename) throws ImportException, ParseException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
+        String line;  // store the text on each line as it's processed
         IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the devices
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -229,7 +229,7 @@ public class ContentImporter extends Importer {
      */
     public static void importContentFile(String guid, String filename) throws ImportException, ParseException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
+        String line;  // store the text on each line as it's processed
         IProductAPI productAPI = ProductAPI.getInstance();  // reference to ProductAPI for adding the content items
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
@@ -297,7 +297,7 @@ public class ContentImporter extends Importer {
                             contentRating = Integer.parseInt(cleanedColumns[5].trim());
                         }
                         catch (NumberFormatException nfe) {
-                            throw new ParseException("Import Content line contains invalid data for the content rating ["+cleanedColumns[5].toString()+"].",
+                            throw new ParseException("Import Content line contains invalid data for the content rating ["+cleanedColumns[5]+"].",
                                                         line,
                                                         lineNumber,
                                                         filename,
@@ -346,7 +346,7 @@ public class ContentImporter extends Importer {
                             contentPrice = Float.parseFloat(cleanedColumns[9].trim());
                         }
                         catch (NumberFormatException nfe) {
-                            throw new ParseException("Import Content line contains invalid data for the content price ["+cleanedColumns[9].toString()+"].",
+                            throw new ParseException("Import Content line contains invalid data for the content price ["+cleanedColumns[9]+"].",
                                                         line,
                                                         lineNumber,
                                                         filename,
@@ -373,7 +373,7 @@ public class ContentImporter extends Importer {
                             contentFilesizeBytes = Integer.parseInt(cleanedColumns[12].trim());
                         }
                         catch (NumberFormatException nfe) {
-                            throw new ParseException("Import Content line contains invalid data for the content application filesize ["+cleanedColumns[12].toString()+"].",
+                            throw new ParseException("Import Content line contains invalid data for the content application filesize ["+cleanedColumns[12]+"].",
                                                         line,
                                                         lineNumber,
                                                         filename,
@@ -386,7 +386,7 @@ public class ContentImporter extends Importer {
                             contentDurationInSeconds = Float.parseFloat(cleanedColumns[13].trim());
                         }
                         catch (NumberFormatException nfe) {
-                            throw new ParseException("Import Content line contains invalid data for the content ringtone duration in seconds ["+cleanedColumns[13].toString()+"].",
+                            throw new ParseException("Import Content line contains invalid data for the content ringtone duration in seconds ["+cleanedColumns[13]+"].",
                                                         line,
                                                         lineNumber,
                                                         filename,
@@ -405,7 +405,7 @@ public class ContentImporter extends Importer {
                             contentPixelHeight = Integer.parseInt(cleanedColumns[15].trim());
                         }
                         catch (NumberFormatException nfe) {
-                            throw new ParseException("Import Content line contains invalid data for the content wallpaper pixel width and height ["+cleanedColumns[14].toString()+","+cleanedColumns[15].toString()+"].",
+                            throw new ParseException("Import Content line contains invalid data for the content wallpaper pixel width and height ["+cleanedColumns[14]+","+cleanedColumns[15]+"].",
                                                         line,
                                                         lineNumber,
                                                         filename,
@@ -415,7 +415,7 @@ public class ContentImporter extends Importer {
 
                     // try to create the content
                     if (contentType == null) {
-                        throw new ParseException("Import Content line contains invalid data for the content type ["+cleanedColumns[0].toString()+"].",
+                        throw new ParseException("Import Content line contains invalid data for the content type ["+cleanedColumns[0]+"].",
                                                     line,
                                                     lineNumber,
                                                     filename,

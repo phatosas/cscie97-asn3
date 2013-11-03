@@ -6,7 +6,7 @@ package cscie97.asn3.ecommerce.collection;
  * their properties are all contained in the parent classes {@link cscie97.asn3.ecommerce.collection.Collection} and
  * its parent class, {@link cscie97.asn3.ecommerce.collection.Collectible}.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.Collection
  * @see cscie97.asn3.ecommerce.collection.Collectible
@@ -20,12 +20,11 @@ public class StaticCollection extends Collection {
      */
     @Override
     public String toString() {
-        String formattedString = String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
+        return String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
                                                 this.getClass().getSimpleName(),
                                                 this.getId(),
                                                 this.getName(),
                                                 this.getDescription());
-        return formattedString;
     }
 
 }

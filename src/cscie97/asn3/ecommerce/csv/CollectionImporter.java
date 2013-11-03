@@ -30,7 +30,7 @@ import java.util.Set;
  * {@link cscie97.asn3.ecommerce.collection.Collection}s. Each sub-task under loading the primary CSV is handled by
  * private methods.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.ICollectionServiceAPI
  * @see cscie97.asn3.ecommerce.collection.CollectionServiceAPI
@@ -191,7 +191,7 @@ public class CollectionImporter extends Importer {
         }
 
         // ensure that we can construct our ContentSearch object based on the remaining parameters
-        ContentSearch searchCriteria = null;
+        ContentSearch searchCriteria;
 
         // construct a string that contains ONLY the search criteria portion of the passed collectionData, and make
         // sure to separate each element with a comma and a space character for correct parsing by SearchEngine
@@ -243,14 +243,10 @@ public class CollectionImporter extends Importer {
      */
     public static void importCollectionsFile(String guid, String filename) throws ImportException, ParseException, CollectionNotFoundException {
         int lineNumber = 0;  // keep track of what lineNumber we're reading in from the input file for exception handling
-        String line = null;  // store the text on each line as it's processed
-
-        // reference to CollectionServiceAPI for adding collections, adding content items, etc.
-        ICollectionServiceAPI collectionsAPI = CollectionServiceAPI.getInstance();
+        String line;  // store the text on each line as it's processed
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
-            List<Content> contentItemsToAdd = new ArrayList<Content>();
 
             while ((line = reader.readLine()) != null) {
                 lineNumber++;

@@ -6,7 +6,7 @@ package cscie97.asn3.ecommerce.collection;
  * {@link cscie97.asn3.ecommerce.collection.DynamicCollection}, and also validating that the required fields for an
  * existing Collection are valid.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.collection.Collection
  * @see cscie97.asn3.ecommerce.collection.Collectible
@@ -44,14 +44,11 @@ package cscie97.asn3.ecommerce.collection;
      * @return   true if the collection has the minimal set of required properties, false otherwise
      */
     public static boolean validateCollection(Collection collection) {
-        if (collection != null && collection instanceof Collection) {
-            return (
-                    collection.getId() != null && collection.getId().length() > 0 &&
-                            collection.getName() != null && collection.getName().length() > 0 &&
-                            collection.getDescription() != null && collection.getDescription().length() > 0
-            );
-        }
-        return false;
+        return (collection != null &&
+                collection.getId() != null && collection.getId().length() > 0 &&
+                collection.getName() != null && collection.getName().length() > 0 &&
+                collection.getDescription() != null && collection.getDescription().length() > 0
+        );
     }
 
     /**
@@ -61,11 +58,10 @@ package cscie97.asn3.ecommerce.collection;
      */
     @Override
     public String toString() {
-        String formattedString = String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
-                                                this.getClass().getSimpleName(),
-                                                this.getId(),
-                                                this.getName(),
-                                                this.getDescription());
-        return formattedString;
+        return String.format("Type: [%s]\nID: [%s]\nName: [%s]\nDescription: [%s]\n",
+                this.getClass().getSimpleName(),
+                this.getId(),
+                this.getName(),
+                this.getDescription());
     }
 }

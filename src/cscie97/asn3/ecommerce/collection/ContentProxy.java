@@ -10,7 +10,7 @@ import cscie97.asn3.ecommerce.product.ProductAPI;
  * inherit the same properties and be treated similarly by the
  * {@link cscie97.asn3.ecommerce.collection.CollectionIterator}.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.product.Content
  * @see cscie97.asn3.ecommerce.collection.Collection
@@ -20,16 +20,38 @@ import cscie97.asn3.ecommerce.product.ProductAPI;
  */
 public class ContentProxy extends Collectible {
 
+    /**
+     * Wrapped {@link cscie97.asn3.ecommerce.product.Content} item
+     */
     private Content contentItem = null;
 
+    /**
+     * Gets the wrapped {@link cscie97.asn3.ecommerce.product.Content} item
+     *
+     * @return  the content item
+     */
     public Content getContentItem() {
         return contentItem;
     }
 
+    /**
+     * Sets the wrapped {@link cscie97.asn3.ecommerce.product.Content} item
+     *
+     * @param item  the content item to wrap
+     */
     public void setContentItem(Content item) {
         this.contentItem = item;
     }
 
+    /**
+     * Class constructor.  Given the passed contentId, looks up the associated
+     * {@link cscie97.asn3.ecommerce.product.Content} item in the {@link cscie97.asn3.ecommerce.product.IProductAPI},
+     * and wraps the returned object so that the item inherits from {@link cscie97.asn3.ecommerce.collection.Collectible}
+     * and can be easily iterated over by {@link cscie97.asn3.ecommerce.collection.CollectionIterator} and contained in
+     * {@link cscie97.asn3.ecommerce.collection.Collectible}s.
+     *
+     * @param contentId  the content ID of the associated {@link cscie97.asn3.ecommerce.product.Content} item to wrap
+     */
     public ContentProxy(String contentId) {
         Content content = ProductAPI.getInstance().getContentByID(contentId);
         if (content != null) {
@@ -40,6 +62,14 @@ public class ContentProxy extends Collectible {
         }
     }
 
+    /**
+     * Class constructor.  Given the passed {@link cscie97.asn3.ecommerce.product.Content} item, wraps it around
+     * the ContentProxy so that the item inherits from {@link cscie97.asn3.ecommerce.collection.Collectible} and can
+     * be easily iterated over by {@link cscie97.asn3.ecommerce.collection.CollectionIterator} and contained in
+     * {@link cscie97.asn3.ecommerce.collection.Collectible}s.
+     *
+     * @param contentItem  the content item to wrap
+     */
     public ContentProxy(Content contentItem) {
         if (contentItem != null) {
             this.setContentItem(contentItem);

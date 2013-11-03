@@ -15,7 +15,7 @@ import java.util.Set;
  *     <li>saving and analyzing historical queries for trends, popular searches, terms, etc.</li>
  * </ul>
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see IProductAPI
  * @see Content
@@ -89,15 +89,15 @@ public class ContentSearch {
      * to the Singleton instance of the {@link cscie97.asn3.ecommerce.product.ProductAPI} for executing the actual
      * content search.
      *
-     * @param rawQuery
-     * @param categories
-     * @param textSearch
-     * @param minimumRating
-     * @param maximumPrice
-     * @param supportedLanguages
-     * @param countries
-     * @param devices
-     * @param contentTypes
+     * @param rawQuery            the actual raw string query passed (including commas)
+     * @param categories          distinct categories to search for, pipe-separated
+     * @param textSearch          the text to search across name, author, and description for
+     * @param minimumRating       the minimum rating that all matching content items should be, or higher; defaults to 6 so that ALL content items which are on the 1-5 rating scale will be included
+     * @param maximumPrice        the maximum price to match content items on; defaults to -1 if not passed so that ALL content items will be included
+     * @param supportedLanguages  set of languages that found content items must support
+     * @param countries           set of countries that matching content items must be able to be exported to
+     * @param devices             set of devices that matching content items must support
+     * @param contentTypes        set of content types that matching content items must be
      */
     public ContentSearch(String rawQuery, Set<String> categories, String textSearch, int minimumRating, float maximumPrice,
                          Set<String> supportedLanguages, Set<Country> countries, Set<Device> devices, Set<ContentType> contentTypes

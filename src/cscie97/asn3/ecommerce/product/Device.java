@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * {@link cscie97.asn3.ecommerce.product.IProductAPI} will only contain one instance of each unique Device to
  * conserve resources (following the Flyweight pattern).
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see ProductAPI
  * @see Content

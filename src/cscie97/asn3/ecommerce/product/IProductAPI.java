@@ -24,7 +24,7 @@ import java.util.Set;
  * {@link cscie97.asn3.ecommerce.product.Country} object so as to not needlessly duplicate things and waste memory
  * and resources.
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see ProductAPI
  * @see Content

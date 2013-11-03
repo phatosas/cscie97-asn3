@@ -4,7 +4,7 @@ package cscie97.asn3.ecommerce.csv;
  * Abstract parent class of all other CSV loading and query implementing child classes.  Provides utility methods
  * that are useful to all implementing classes and centralizes shared methods (such as CSV line parsing).
  *
- * @author David Killeffer <rayden7@gmail.com>
+ * @author David Killeffer &lt;rayden7@gmail.com&gt;
  * @version 1.0
  * @see cscie97.asn3.ecommerce.csv.CollectionImporter
  * @see cscie97.asn3.ecommerce.csv.ContentImporter
