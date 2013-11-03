@@ -1,6 +1,7 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.collection.Collectible.CollectionIterator;
+import cscie97.asn3.ecommerce.collection.CollectionIterator;
+import cscie97.asn3.ecommerce.exception.CollectibleAlreadyExistsException;
 import cscie97.asn3.ecommerce.product.ContentSearch;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,11 +9,23 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created with IntelliJ IDEA.
- * User: dkilleffer
- * Date: 10/23/13
- * Time: 12:49 AM
- * To change this template use File | Settings | File Templates.
+ * Implements the {@link cscie97.asn3.ecommerce.collection.ICollectionServiceAPI} class to provide public methods for
+ * interaction with the Collection catalog. Consumers and Administrators may search over all collections that
+ * match searchText in the Collection name or description.  Administrators may also create collections, add content to
+ * collections, and for DynamicCollections, define the search criteria used.
+ *
+ * The CollectionServiceAPI is accessed as a Singleton; users must use the {@link CollectionServiceAPI#getInstance()}
+ * method to obtain a reference to the sole CollectionServiceAPI instance.
+ *
+ * @author David Killeffer <rayden7@gmail.com>
+ * @version 1.0
+ * @see cscie97.asn3.ecommerce.collection.Collection
+ * @see cscie97.asn3.ecommerce.collection.Collectible
+ * @see cscie97.asn3.ecommerce.collection.DynamicCollection
+ * @see cscie97.asn3.ecommerce.collection.StaticCollection
+ * @see cscie97.asn3.ecommerce.collection.ContentProxy
+ * @see cscie97.asn3.ecommerce.product.Content
+ * @see cscie97.asn3.ecommerce.product.ContentSearch
  */
 public class CollectionServiceAPI implements ICollectionServiceAPI {
 
@@ -28,7 +41,7 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
     private static ICollectionServiceAPI instance = null;
 
     /**
-     * Class constructor.  Initially sets all collections to be empty HashSets.
+     * Class constructor.  Declares the top-level collections to initially be an empty HashSet.
      */
     private CollectionServiceAPI() {
         this.topLevelCollections = new HashSet<Collection>() { };
@@ -47,61 +60,36 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
     }
 
     /**
-     * Verifies that the <b>guid</b> access token passed is authenticated and authorized for carrying out
-     * restricted actions on the CollectionServiceAPI (such as adding new Collections, adding Content to Collections,
-     * etc.).
-     * <b>Note that for this version of the CollectionServiceAPI, this method is mocked and will return true for
-     * any string passed.</b>
+     * To iterate over all the collections in the CollectionServiceAPI catalog, a "virtual" root collection must be
+     * created, and all current topLevelCollections added to it.  The virtual root collection will then be able to
+     * iterate over every single collection and content item in the entire Collection catalog.  This method will
+     * construct that virtual root collection, add all the top-level collections to it, and then returns the virtual
+     * root.
      *
-     * @param  guid    the string access token to check for authentication and authorization for carrying
-     *                 out restricted actions on the CollectionServiceAPI
-     * @return         true if guid is authenticated and authorized to execute restricted actions on
-     *                 CollectionServiceAPI, false otherwise
+     * @return  a virtual root Collection that has all current topLevelCollections as children
      */
-    public boolean validateAccessToken(String guid) {
-        if (guid != null && guid.length() > 0) {
-            return true;
+    private Collection createVirtualRoot() {
+        Collection virtual = Collection.createCollection("static");
+        virtual.setId("virtualRoot");
+        virtual.setName("virtualRoot");
+        virtual.setDescription("Virtual root level collection containing all child collections.");
+        for (Collectible c : this.topLevelCollections) {
+            virtual.add(c);
         }
-        return false;
+        return virtual;
     }
 
 
-    public Collection createCollection(String type, String id) {
-
-        // TODO: ensure that there is no other collection that has the same ID (use collection iterator)
-
-        if (type != null && type.length() > 0) {
-            if (type.equalsIgnoreCase("static")) {
-                return new StaticCollection();
-            } else if (type.equalsIgnoreCase("dynamic")) {
-                return new DynamicCollection();
-            }
-        }
-        return null;
-    }
-
-
+    // begin region: implementing methods from ICollectionServiceAPI (yes, I got used to having these in C#)
 
     /**
-     * Given a collection ID, search for any {@link cscie97.asn3.ecommerce.collection.Collection} that matches that
-     * code  in the collection catalog.
+     * Restricted interface; will validate GUID token before adding content to a collection.  Adds the passed
+     * collection to the CollectionService catalog at the top-level.
      *
-     * @param collectionID  a unique collection ID
-     * @return              the found {@link cscie97.asn3.ecommerce.collection.Collection} with the matching ID
+     * @param guid        the string access token to check for authentication and authorization for carrying out
+     *                    restricted actions on the CollectionServiceAPI
+     * @param collection  the {@link cscie97.asn3.ecommerce.collection.Collection} to add to the Collection catalog
      */
-     public Collection getCollectionByID(String collectionID) {
-
-         // TODO: use collection iterators to iterate over ALL collections and return the one that has the matching ID
-
-         for (Collection collection : this.topLevelCollections) {
-             if (collection.getId().equalsIgnoreCase(collectionID)) {
-                 return collection;
-             }
-         }
-         return null;
-     }
-
-
     @Override
     public void addCollection(String guid, Collection collection) {
         if (validateAccessToken(guid)) {
@@ -113,11 +101,23 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
     }
 
     /**
-     * Adds a Collectible to the collection specified by the <c>collectionId</c>.  Because Collections are trees, will not
+     * Restricted interface; will validate GUID token before adding content to a collection.  Looks up the
+     * {@link cscie97.asn3.ecommerce.collection.Collection} with matching collectionId in the catalog and then adds
+     * the passed {@link cscie97.asn3.ecommerce.collection.Collectible} to that
+     * {@link cscie97.asn3.ecommerce.collection.Collection}.  Note that
+     * {@link cscie97.asn3.ecommerce.collection.Collectible}s may be either
+     * {@link cscie97.asn3.ecommerce.collection.ContentProxy} items (which wrap
+     * {@link cscie97.asn3.ecommerce.product.Content} items that are returned by the
+     * {@link cscie97.asn3.ecommerce.product.IProductAPI}, or {@link cscie97.asn3.ecommerce.collection.Collection}
+     * objects.
      *
-     * @param guid
-     * @param collectionId
-     * @param collectible
+     * @param guid          the string access token to check for authentication and authorization for carrying out
+     *                      restricted actions on the CollectionServiceAPI
+     * @param collectionId  the collection ID of the {@link cscie97.asn3.ecommerce.collection.Collection} to add the
+     *                      collectible to
+     * @param collectible   the collectible (which may actually be either a
+     *                      {@link cscie97.asn3.ecommerce.collection.ContentProxy} or a
+     *                      {@link cscie97.asn3.ecommerce.collection.Collection} item) to add to the found Collection
      */
     @Override
     public void addContentToCollection(String guid, String collectionId, Collectible collectible) {
@@ -127,51 +127,59 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
                 List<String> preexistingIDs = new ArrayList<String>();
                 CollectionIterator iterator = foundCollection.getIterator();
                 while (iterator.hasNext()) {
-                    Collectible currentCollectible  = iterator.next();
+                    Collectible currentCollectible = iterator.next();
                     preexistingIDs.add(currentCollectible.getId());
                 }
-
-
                 foundCollection.add(collectible);
             }
         }
     }
 
-    @Override
-    public void setDynamicCollectionSearchCriteria(String guid, String collectionId, ContentSearch searchCriteria) {
-        if (validateAccessToken(guid)) {
-            Collection foundCollection = this.getCollectionByID(collectionId);
-            if (foundCollection != null && foundCollection instanceof DynamicCollection) {
-                ((DynamicCollection)foundCollection).setSearchCriteria(searchCriteria);
+    /**
+     * Given a collection ID, search for any {@link cscie97.asn3.ecommerce.collection.Collection} that matches that
+     * code in the collection catalog.  Constructs a private virtual "root" collection and sets all current top-level
+     * collections as it's children so that it can iterate over every collection in the catalog to find the one that matches.
+     *
+     * @param collectionID  the unique collection ID to find the actual {@link cscie97.asn3.ecommerce.collection.Collection}
+     * @return              the found {@link cscie97.asn3.ecommerce.collection.Collection} with the matching ID;
+     *                      returns null if not found
+     */
+    public Collection getCollectionByID(String collectionID) {
+        Collection virtual = this.createVirtualRoot();
+        CollectionIterator iterator = virtual.getIterator();
+        while (iterator.hasNext()) {
+            Collectible collectible = iterator.next();
+            if (collectible.getId().equalsIgnoreCase(collectionID) && collectible instanceof Collection) {
+                return (Collection)collectible;
             }
         }
+        return null;
     }
 
+    /**
+     * Finds all {@link cscie97.asn3.ecommerce.collection.Collection}s whose
+     * {@link cscie97.asn3.ecommerce.collection.Collection#name} or
+     * {@link cscie97.asn3.ecommerce.collection.Collection#description} contains any part of the searchCriteria passed.
+     * Note that the search is case-insensitive.
+     *
+     * To conduct the search, constructs a virtual "root" Collection that has all the top-level Collections as
+     * immediate children, and then iterates over all the {@link cscie97.asn3.ecommerce.collection.Collectible}s in
+     * this virtual Collection aggregate and finds matching {@link cscie97.asn3.ecommerce.collection.Collection}s.
+     *
+     * @param searchCriteria  text to find in all Collections name or description
+     * @return                unique set of Collections that match any part of the searchCriteria
+     */
     @Override
     public Set<Collection> searchCollections(String searchCriteria) {
-        // construct a virtual "root" collection that has all the "topLevelCollections" as children; then use the
-        // iterator for this virtual top-level collection to iterate over all collections and find ones that match
-        // name/description to the searchCirteria
-        Collection virtual = Collection.createCollection("static");
-
-        virtual.setId("virtualRoot");
-        virtual.setName("virtualRoot");
-        virtual.setDescription("Virtual root level collection containing all child collections.");
-
-        for (Collectible c : this.topLevelCollections) {
-            virtual.add(c);
-        }
+        Collection virtual = this.createVirtualRoot();
         CollectionIterator iterator = virtual.getIterator();
-
         Set<Collection> matchingCollections = new HashSet<Collection>();
 
         while (iterator.hasNext()) {
             Collectible currentCollectible = iterator.next();
-
             if (!(currentCollectible instanceof StaticCollection) && !(currentCollectible instanceof DynamicCollection)) {
                 continue;
             }
-
             if ((searchCriteria != null && searchCriteria.length() > 0) && currentCollectible.getName().toLowerCase().contains(searchCriteria.trim().toLowerCase())) {
                 matchingCollections.add((Collection)currentCollectible);
             }
@@ -182,14 +190,52 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
         return matchingCollections;
     }
 
-
+    /**
+     * Restricted interface; will validate GUID token before adding content to a collection.  Looks up the
+     * {@link cscie97.asn3.ecommerce.collection.Collection} with matching collectionId in the catalog, ensures that
+     * the found collection is actually a {@link cscie97.asn3.ecommerce.collection.DynamicCollection}, and then
+     * sets the {@link cscie97.asn3.ecommerce.product.ContentSearch} searchCriteria object on the Collection.
+     * Note that at the time the search criteria on a {@link cscie97.asn3.ecommerce.collection.DynamicCollection} is
+     * defined, it is immediately executed so that the child elements of the
+     * {@link cscie97.asn3.ecommerce.collection.DynamicCollection} are present.
+     *
+     * @param guid            the string access token to check for authentication and authorization for carrying out
+     *                        restricted actions on the CollectionServiceAPI
+     * @param collectionId    the collection ID of the {@link cscie97.asn3.ecommerce.collection.DynamicCollection} to
+     *                        define the add the search criteria for
+     * @param searchCriteria  the collectible (which may actually be either a
+     *                        {@link cscie97.asn3.ecommerce.collection.ContentProxy} or a
+     *                        {@link cscie97.asn3.ecommerce.collection.Collection} item) to add to the found Collection
+     */
     @Override
-    public Collectible.CollectionIterator getCollectionIterator(String collectionId) {
-        Collection foundCollection = this.getCollectionByID(collectionId);
-        if (foundCollection != null) {
-            return foundCollection.getIterator();
+    public void setDynamicCollectionSearchCriteria(String guid, String collectionId, ContentSearch searchCriteria) {
+        if (validateAccessToken(guid)) {
+            Collection foundCollection = this.getCollectionByID(collectionId);
+            if (foundCollection != null && foundCollection instanceof DynamicCollection) {
+                ((DynamicCollection)foundCollection).setSearchCriteria(searchCriteria);
+            }
         }
-        else return null;
     }
+
+    /**
+     * Verifies that the <b>guid</b> access token passed is authenticated and authorized for carrying out
+     * restricted actions on the CollectionServiceAPI (such as adding new Collections, adding Content to Collection,
+     * etc.).
+     * <b>Note that for this version of the CollectionServiceAPI, this method is mocked and will return true for
+     * any string passed.</b>
+     *
+     * @param guid  the string access token to check for authentication and authorization for carrying out
+     *              restricted actions on the CollectionServiceAPI
+     * @return      true if guid is authenticated and authorized to execute restricted actions on CollectionServiceAPI,
+     *              false otherwise
+     */
+    public boolean validateAccessToken(String guid) {
+        if (guid != null && guid.length() > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    // end region: implementing methods from ICollectionServiceAPI (yes, I got used to having these in C#)
 
 }

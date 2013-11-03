@@ -75,6 +75,7 @@ public class CollectionImporter extends Importer {
 
         ICollectionServiceAPI collectionAPI = CollectionServiceAPI.getInstance();
         collectionAPI.addCollection(guid, collection);
+        System.out.println(String.format("Adding Collection to CollectionService catalog: [%s]\n", collection));
     }
 
     /**
@@ -216,14 +217,14 @@ public class CollectionImporter extends Importer {
         Set<Collection> matchingCollections = CollectionServiceAPI.getInstance().searchCollections(searchText);
 
         if (matchingCollections.size() > 0) {
-            System.out.println(String.format("\t[%d] COLLECTIONS MATCH YOUR SEARCH CRITERIA:\n\n", matchingCollections.size()));
+            System.out.println(String.format("\t[%d] COLLECTIONS MATCH YOUR SEARCH CRITERIA:\n", matchingCollections.size()));
         } else {
-            System.out.println("\tNO COLLECTIONS MATCH YOUR SEARCH CRITERIA.\n\n");
+            System.out.println("\tNO COLLECTIONS MATCH YOUR SEARCH CRITERIA.\n");
         }
 
         int resultsCounter = 1;
         for (Collection collection : matchingCollections) {
-            System.out.println(String.format("MATCHING COLLECTION NAME #%d: %s", resultsCounter, collection.getName()));
+            System.out.println(String.format("\tMATCHING COLLECTION NAME #%d: %s", resultsCounter, collection.getName()));
             resultsCounter++;
         }
         System.out.println(String.format("\n******************************\n"));
