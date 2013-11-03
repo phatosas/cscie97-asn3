@@ -63,6 +63,23 @@ public interface ICollectionServiceAPI {
     public Collection getCollectionByID(String collectionID);
 
     /**
+     * If collectionID passed is not null and corresponds to a valid collection, simply returns the iterator for that
+     * collection (note that the {@link cscie97.asn3.ecommerce.collection.CollectionIterator} can also simply be
+     * retrieved if a reference to the actual {@link cscie97.asn3.ecommerce.collection.Collection} instance).  If the
+     * passed collectionId is null or empty string, constructs a virtual "root" level collection that has all the
+     * current top-level Collections as children, and returns a
+     * {@link cscie97.asn3.ecommerce.collection.CollectionIterator} which will be able to iterate over every item in
+     * the Collection catalog.
+     *
+     * @param collectionId  the unique collection ID to look up the CollectionIterator for; may also be null (in which
+     *                      case a virtual root Collection is defined, and the iterator for that is returned)
+     * @return              the CollectionIterator for the Collection with matching collectionId, or a
+     *                      CollectionIterator for a virtual "root" level Collection which may traverse all
+     *                      Collectibles in the entire catalog
+     */
+    public CollectionIterator getCollectionIterator(String collectionId);
+
+    /**
      * Finds all {@link cscie97.asn3.ecommerce.collection.Collection}s whose
      * {@link cscie97.asn3.ecommerce.collection.Collection#name} or
      * {@link cscie97.asn3.ecommerce.collection.Collection#description} contains any part of the searchCriteria passed.

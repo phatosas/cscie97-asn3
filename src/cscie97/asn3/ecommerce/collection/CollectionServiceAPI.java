@@ -80,7 +80,9 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
     }
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // begin region: implementing methods from ICollectionServiceAPI (yes, I got used to having these in C#)
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Restricted interface; will validate GUID token before adding content to a collection.  Adds the passed
@@ -144,6 +146,7 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
      * @return              the found {@link cscie97.asn3.ecommerce.collection.Collection} with the matching ID;
      *                      returns null if not found
      */
+    @Override
     public Collection getCollectionByID(String collectionID) {
         Collection virtual = this.createVirtualRoot();
         CollectionIterator iterator = virtual.getIterator();
@@ -154,6 +157,32 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
             }
         }
         return null;
+    }
+
+    /**
+     * If collectionID passed is not null and corresponds to a valid collection, simply returns the iterator for that
+     * collection (note that the {@link cscie97.asn3.ecommerce.collection.CollectionIterator} can also simply be
+     * retrieved if a reference to the actual {@link cscie97.asn3.ecommerce.collection.Collection} instance).  If the
+     * passed collectionId is null or empty string, constructs a virtual "root" level collection that has all the
+     * current top-level Collections as children, and returns a
+     * {@link cscie97.asn3.ecommerce.collection.CollectionIterator} which will be able to iterate over every item in
+     * the Collection catalog.
+     *
+     * @param collectionId  the unique collection ID to look up the CollectionIterator for; may also be null (in which
+     *                      case a virtual root Collection is defined, and the iterator for that is returned)
+     * @return              the CollectionIterator for the Collection with matching collectionId, or a
+     *                      CollectionIterator for a virtual "root" level Collection which may traverse all
+     *                      Collectibles in the entire catalog
+     */
+    @Override
+    public CollectionIterator getCollectionIterator(String collectionId) {
+        Collection collection = this.getCollectionByID(collectionId);
+        if (collection != null) {
+            return collection.getIterator();
+        } else {
+            collection = this.createVirtualRoot();
+        }
+        return collection.getIterator();
     }
 
     /**
@@ -229,10 +258,13 @@ public class CollectionServiceAPI implements ICollectionServiceAPI {
      * @return      true if guid is authenticated and authorized to execute restricted actions on CollectionServiceAPI,
      *              false otherwise
      */
+    @Override
     public boolean validateAccessToken(String guid) {
         return guid != null && guid.length() > 0;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // end region: implementing methods from ICollectionServiceAPI (yes, I got used to having these in C#)
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
