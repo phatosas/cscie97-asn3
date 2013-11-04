@@ -3,6 +3,8 @@ package cscie97.asn3.ecommerce.collection;
 import cscie97.asn3.ecommerce.product.Content;
 import cscie97.asn3.ecommerce.product.ProductAPI;
 
+import java.util.List;
+
 /**
  * Wrapper class for {@link cscie97.asn3.ecommerce.product.Content} objects that may be contained in Collections.
  * Since all items that may be part of a {@link cscie97.asn3.ecommerce.collection.Collection} must be able to be
@@ -77,6 +79,39 @@ public class ContentProxy extends Collectible {
             this.setName(contentItem.getName());
             this.setDescription(contentItem.getDescription());
         }
+    }
+
+    /**
+     * Overrides method in {@link cscie97.asn3.ecommerce.collection.Collectible}; since ContentProxy objects may only
+     * contain single {@link cscie97.asn3.ecommerce.product.Content} items, there is no need for an iterator.
+     *
+     * @return  always returns null because ContentProxy items are singular
+     */
+    @Override
+    public CollectionIterator getIterator() {
+        return null;
+    }
+
+    /**
+     * Overrides method in {@link cscie97.asn3.ecommerce.collection.Collectible}; since ContentProxy items do not
+     * contain child collections, does nothing.
+     *
+     * @return  since ContentProxy items do not contain children, does nothing
+     */
+    @Override
+    public List<Collectible> getChildren() {
+        return null;
+    }
+
+    /**
+     * Overrides method in {@link cscie97.asn3.ecommerce.collection.Collectible}; since ContentProxy items do not
+     * contain child collections, does nothing.
+     *
+     * @param collectible  not used; method does not modify object in any way
+     */
+    @Override
+    public void add(Collectible collectible) {
+        return;
     }
 
 }

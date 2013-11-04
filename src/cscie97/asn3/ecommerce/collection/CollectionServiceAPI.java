@@ -1,7 +1,5 @@
 package cscie97.asn3.ecommerce.collection;
 
-import cscie97.asn3.ecommerce.collection.CollectionIterator;
-import cscie97.asn3.ecommerce.exception.CollectibleAlreadyExistsException;
 import cscie97.asn3.ecommerce.product.ContentSearch;
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,10 +1,6 @@
 package cscie97.asn3.ecommerce.csv;
 
-import cscie97.asn3.ecommerce.collection.Collection;
-import cscie97.asn3.ecommerce.collection.ICollectionServiceAPI;
-import cscie97.asn3.ecommerce.collection.CollectionServiceAPI;
-import cscie97.asn3.ecommerce.collection.Collectible;
-import cscie97.asn3.ecommerce.collection.ContentProxy;
+import cscie97.asn3.ecommerce.collection.*;
 import cscie97.asn3.ecommerce.exception.CollectionNotFoundException;
 import cscie97.asn3.ecommerce.exception.ContentNotFoundException;
 import cscie97.asn3.ecommerce.exception.ImportException;
@@ -274,10 +270,22 @@ public class CollectionImporter extends Importer {
                             CollectionImporter.addContentToCollection(guid, cleanedColumns);
                         }
 
-                        // set dynamic collection content search crtieria
+                        // set dynamic collection content search criteria
                         if (cleanedColumns.length == 10 && cleanedColumns[0].equalsIgnoreCase("set_dynamic_criteria")) {
                             CollectionImporter.setDynamicCriteria(guid, cleanedColumns);
                         }
+
+                        System.out.println(String.format("\n******************************\n"));
+                        System.out.println("ITERATING OVER ALL COLLECTIONS...\n\n");
+                        // per requirements, iterate over all collections and print out their contents
+                        CollectionIterator allCollectionsIterator = CollectionServiceAPI.getInstance().getCollectionIterator(null);
+                        while (allCollectionsIterator.hasNext()) {
+                            Collectible collectible = allCollectionsIterator.next();
+                            System.out.println(collectible);
+
+                        }
+                        System.out.println(String.format("\n******************************\n"));
+
 
                         // search collections
                         if (cleanedColumns.length == 2 && cleanedColumns[0].equalsIgnoreCase("search_collection")) {
