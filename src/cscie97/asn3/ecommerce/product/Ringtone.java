@@ -22,7 +22,7 @@ import java.util.Set;
 public class Ringtone extends Content {
 
     /**
-     * The durating of the Ringtone when played.
+     * The duration of the Ringtone when played.
      */
     private float durationInSeconds = 0;
 

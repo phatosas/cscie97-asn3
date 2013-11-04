@@ -91,6 +91,11 @@ public class Country {
         return exportStatus;
     }
 
+    /**
+     * Sets the export status of the Country (can be OPEN or CLOSED)
+     *
+     * @param exportStatus  export status of the Country (can be OPEN or CLOSED)
+     */
     protected void setExportStatus(String exportStatus) {
         this.exportStatus = exportStatus;
     }
@@ -100,6 +105,7 @@ public class Country {
      *
      * @return  string containing all the object properties
      */
+    @Override
     public String toString() {
         return "Country: [code:"+this.code+", name:"+this.name+", exportStatus:"+this.exportStatus+"]";
     }
@@ -132,6 +138,7 @@ public class Country {
      * @see <a href="http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder">http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder</a>
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html</a>
      */
+    @Override
     public boolean equals(Object compare){
         if (compare == null)
             return false;
@@ -161,6 +168,7 @@ public class Country {
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html</a>
      * @see <a href="http://primes.utm.edu/lists/small/1000.txt">http://primes.utm.edu/lists/small/1000.txt</a>
      */
+    @Override
     public int hashCode() {
         return new HashCodeBuilder(2549, 4261)
                 .append(this.code)

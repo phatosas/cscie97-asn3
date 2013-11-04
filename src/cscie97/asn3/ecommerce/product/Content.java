@@ -376,6 +376,7 @@ public abstract class Content {
      *
      * @return  string representation of the content item
      */
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("CONTENT ITEM:\n") );
@@ -408,6 +409,7 @@ public abstract class Content {
      * @see <a href="http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder">http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder</a>
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html</a>
      */
+    @Override
     public boolean equals(Object compare){
         if (compare == null)
             return false;
@@ -434,7 +436,7 @@ public abstract class Content {
                 .isEquals();
     }
 
-        /**
+    /**
      * Since {@link cscie97.asn3.ecommerce.product.Content} objects may be added to collections, and also since
      * the {@link cscie97.asn3.ecommerce.product.IProductAPI} enforces that all content items be unique, this method
      * provides a way to get the unique hash code for the current content item.  Uses the Apache Commons
@@ -446,6 +448,7 @@ public abstract class Content {
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html</a>
      * @see <a href="http://primes.utm.edu/lists/small/1000.txt">http://primes.utm.edu/lists/small/1000.txt</a>
      */
+    @Override
     public int hashCode() {
         return new HashCodeBuilder(191, 7253)
                 .append(this.name)

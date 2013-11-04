@@ -103,6 +103,7 @@ public class Device {
      *
      * @return  string containing all the object properties
      */
+    @Override
     public String toString() {
         return "Device: [id:"+this.id+", name:"+this.name+", manufacturer:"+this.manufacturer+"]";
     }
@@ -134,6 +135,7 @@ public class Device {
      * @see <a href="http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder">http://www.java-tutorial.ch/core-java-tutorial/equalsbuilder</a>
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/EqualsBuilder.html</a>
      */
+    @Override
     public boolean equals(Object compare){
         if (compare == null)
             return false;
@@ -163,6 +165,7 @@ public class Device {
      * @see <a href="http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html">http://commons.apache.org/proper/commons-lang/javadocs/api-2.6/org/apache/commons/lang/builder/HashCodeBuilder.html</a>
      * @see <a href="http://primes.utm.edu/lists/small/1000.txt">http://primes.utm.edu/lists/small/1000.txt</a>
      */
+    @Override
     public int hashCode() {
         return new HashCodeBuilder(557, 1289)
                 .append(this.id)
