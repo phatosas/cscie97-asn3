@@ -64,7 +64,7 @@ public class CollectionIterator implements Iterator {
     }
 
     /**
-     * Traverse the object and return the next item.
+     * Traverse the Collectible and return the next item.
      *
      * @return  the next Collectible in the Collection
      */
@@ -100,4 +100,5 @@ public class CollectionIterator implements Iterator {
     public void remove() {
         throw new UnsupportedOperationException();
     }
+
 }

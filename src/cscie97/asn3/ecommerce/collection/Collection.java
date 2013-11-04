@@ -16,8 +16,8 @@ package cscie97.asn3.ecommerce.collection;
  public abstract class Collection extends Collectible {
 
     /**
-     * Creates an empty "shell" collection, with no properties.  Collections can currently only be either
-     * {@link cscie97.asn3.ecommerce.collection.StaticCollection} or
+     * Factory method to create an empty "shell" collection, with no properties.  Collections can currently only be
+     * either {@link cscie97.asn3.ecommerce.collection.StaticCollection} or
      * {@link cscie97.asn3.ecommerce.collection.DynamicCollection}.
      *
      * @param type  which type of collection to create; can be either "static" or "dynamic"
