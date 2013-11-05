@@ -297,7 +297,7 @@ public class CollectionImporter extends Importer {
             System.out.println(String.format("\n******************************\n"));
             System.out.println("ITERATING OVER ALL COLLECTIONS...\n\n");
             // per requirements, iterate over all collections and print out their contents
-            CollectionIterator allCollectionsIterator = CollectionServiceAPI.getInstance().getCollectionIterator(null);
+            CollectionIterator allCollectionsIterator = CollectionServiceAPI.getInstance().getCollectionIterator("staticA");
             while (allCollectionsIterator.hasNext()) {
                 Collectible collectible = allCollectionsIterator.next();
                 System.out.println(collectible);

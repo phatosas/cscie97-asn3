@@ -53,15 +53,15 @@ set_dynamic_criteria, dynamicB, iteratorTest, , , , , , ,
 #                     F (CP)  G (CP)  
 #
 #  When iterating over staticA collection using depth-first-search, the Collectible items should be returned in this order by the iterator:
-#    F
-#    G
-#    staticC
 #    D
 #    E
-#    A
-#    B
-#    C
+#    G
+#    F
+#    staticC
 #    dynamicB
+#    C
+#    B
+#    A
 #    staticA
 #
 
