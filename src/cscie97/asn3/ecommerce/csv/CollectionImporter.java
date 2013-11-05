@@ -275,18 +275,6 @@ public class CollectionImporter extends Importer {
                             CollectionImporter.setDynamicCriteria(guid, cleanedColumns);
                         }
 
-                        System.out.println(String.format("\n******************************\n"));
-                        System.out.println("ITERATING OVER ALL COLLECTIONS...\n\n");
-                        // per requirements, iterate over all collections and print out their contents
-                        CollectionIterator allCollectionsIterator = CollectionServiceAPI.getInstance().getCollectionIterator(null);
-                        while (allCollectionsIterator.hasNext()) {
-                            Collectible collectible = allCollectionsIterator.next();
-                            System.out.println(collectible);
-
-                        }
-                        System.out.println(String.format("\n******************************\n"));
-
-
                         // search collections
                         if (cleanedColumns.length == 2 && cleanedColumns[0].equalsIgnoreCase("search_collection")) {
                             CollectionImporter.searchCollections(cleanedColumns[1].toLowerCase());
@@ -304,6 +292,19 @@ public class CollectionImporter extends Importer {
                                                 null);
                 }
             }
+
+            // lastly, exercise iterating over ALL the collections
+            System.out.println(String.format("\n******************************\n"));
+            System.out.println("ITERATING OVER ALL COLLECTIONS...\n\n");
+            // per requirements, iterate over all collections and print out their contents
+            CollectionIterator allCollectionsIterator = CollectionServiceAPI.getInstance().getCollectionIterator(null);
+            while (allCollectionsIterator.hasNext()) {
+                Collectible collectible = allCollectionsIterator.next();
+                System.out.println(collectible);
+
+            }
+            System.out.println(String.format("\n******************************\n"));
+
         }
         catch (FileNotFoundException fnfe) {
             throw new ImportException("Could not find file ["+filename+"] to open for reading", lineNumber, filename, fnfe);
